@@ -151,7 +151,7 @@ scrollAmount=3><U><FONT color=red>
   'integrate_config' => '',
   'hash_code' => '31693422540744c0a6b6da635b7a5a93',
   'template' => 'default',
-  'install_date' => '1458799308',
+  'install_date' => '1458806511',
   'ecs_version' => 'v2.7.3',
   'sms_user_name' => '',
   'sms_password' => '',

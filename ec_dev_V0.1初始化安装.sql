@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 2016-03-24 14:35:01
+-- Generation Time: 2016-03-24 16:06:35
 -- 服务器版本： 5.6.11
 -- PHP Version: 5.5.1
 
@@ -19,13 +19,19 @@ SET time_zone = "+00:00";
 --
 -- Database: `ec_dev`
 --
+CREATE DATABASE IF NOT EXISTS `ec_dev` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+USE `ec_dev`;
 
 -- --------------------------------------------------------
 
 --
 -- 表的结构 `ecs_account_log`
 --
+-- 创建时间： 2016-03-24 08:01:49
+-- 最后更新： 2016-03-24 08:01:49
+--
 
+DROP TABLE IF EXISTS `ecs_account_log`;
 CREATE TABLE IF NOT EXISTS `ecs_account_log` (
   `log_id` mediumint(8) unsigned NOT NULL,
   `user_id` mediumint(8) unsigned NOT NULL,
@@ -38,6 +44,15 @@ CREATE TABLE IF NOT EXISTS `ecs_account_log` (
   `change_type` tinyint(3) unsigned NOT NULL
 ) ENGINE=MyISAM AUTO_INCREMENT=36 DEFAULT CHARSET=utf8;
 
+--
+-- 表的关联 `ecs_account_log`:
+--
+
+--
+-- 插入之前先把表清空（truncate） `ecs_account_log`
+--
+
+TRUNCATE TABLE `ecs_account_log`;
 --
 -- 转存表中的数据 `ecs_account_log`
 --
@@ -84,7 +99,11 @@ INSERT INTO `ecs_account_log` (`log_id`, `user_id`, `user_money`, `frozen_money`
 --
 -- 表的结构 `ecs_ad`
 --
+-- 创建时间： 2016-03-24 08:01:47
+-- 最后更新： 2016-03-24 08:01:47
+--
 
+DROP TABLE IF EXISTS `ecs_ad`;
 CREATE TABLE IF NOT EXISTS `ecs_ad` (
   `ad_id` smallint(5) unsigned NOT NULL,
   `position_id` smallint(5) unsigned NOT NULL DEFAULT '0',
@@ -101,12 +120,26 @@ CREATE TABLE IF NOT EXISTS `ecs_ad` (
   `enabled` tinyint(3) unsigned NOT NULL DEFAULT '1'
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
+--
+-- 表的关联 `ecs_ad`:
+--
+
+--
+-- 插入之前先把表清空（truncate） `ecs_ad`
+--
+
+TRUNCATE TABLE `ecs_ad`;
 -- --------------------------------------------------------
 
 --
 -- 表的结构 `ecs_admin_action`
 --
+-- 创建时间： 2016-03-24 08:01:47
+-- 最后更新： 2016-03-24 08:01:47
+-- 最后检查： 2016-03-24 08:01:50
+--
 
+DROP TABLE IF EXISTS `ecs_admin_action`;
 CREATE TABLE IF NOT EXISTS `ecs_admin_action` (
   `action_id` tinyint(3) unsigned NOT NULL,
   `parent_id` tinyint(3) unsigned NOT NULL DEFAULT '0',
@@ -114,6 +147,15 @@ CREATE TABLE IF NOT EXISTS `ecs_admin_action` (
   `relevance` varchar(20) NOT NULL DEFAULT ''
 ) ENGINE=MyISAM AUTO_INCREMENT=136 DEFAULT CHARSET=utf8;
 
+--
+-- 表的关联 `ecs_admin_action`:
+--
+
+--
+-- 插入之前先把表清空（truncate） `ecs_admin_action`
+--
+
+TRUNCATE TABLE `ecs_admin_action`;
 --
 -- 转存表中的数据 `ecs_admin_action`
 --
@@ -234,7 +276,12 @@ INSERT INTO `ecs_admin_action` (`action_id`, `parent_id`, `action_code`, `releva
 --
 -- 表的结构 `ecs_admin_log`
 --
+-- 创建时间： 2016-03-24 08:01:47
+-- 最后更新： 2016-03-24 08:01:47
+-- 最后检查： 2016-03-24 08:01:50
+--
 
+DROP TABLE IF EXISTS `ecs_admin_log`;
 CREATE TABLE IF NOT EXISTS `ecs_admin_log` (
   `log_id` int(10) unsigned NOT NULL,
   `log_time` int(10) unsigned NOT NULL DEFAULT '0',
@@ -243,6 +290,15 @@ CREATE TABLE IF NOT EXISTS `ecs_admin_log` (
   `ip_address` varchar(15) NOT NULL DEFAULT ''
 ) ENGINE=MyISAM AUTO_INCREMENT=464 DEFAULT CHARSET=utf8;
 
+--
+-- 表的关联 `ecs_admin_log`:
+--
+
+--
+-- 插入之前先把表清空（truncate） `ecs_admin_log`
+--
+
+TRUNCATE TABLE `ecs_admin_log`;
 --
 -- 转存表中的数据 `ecs_admin_log`
 --
@@ -717,7 +773,11 @@ INSERT INTO `ecs_admin_log` (`log_id`, `log_time`, `user_id`, `log_info`, `ip_ad
 --
 -- 表的结构 `ecs_admin_message`
 --
+-- 创建时间： 2016-03-24 08:01:47
+-- 最后更新： 2016-03-24 08:01:47
+--
 
+DROP TABLE IF EXISTS `ecs_admin_message`;
 CREATE TABLE IF NOT EXISTS `ecs_admin_message` (
   `message_id` smallint(5) unsigned NOT NULL,
   `sender_id` tinyint(3) unsigned NOT NULL DEFAULT '0',
@@ -730,12 +790,25 @@ CREATE TABLE IF NOT EXISTS `ecs_admin_message` (
   `message` text NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
+--
+-- 表的关联 `ecs_admin_message`:
+--
+
+--
+-- 插入之前先把表清空（truncate） `ecs_admin_message`
+--
+
+TRUNCATE TABLE `ecs_admin_message`;
 -- --------------------------------------------------------
 
 --
 -- 表的结构 `ecs_admin_user`
 --
+-- 创建时间： 2016-03-24 08:01:47
+-- 最后更新： 2016-03-24 08:03:46
+--
 
+DROP TABLE IF EXISTS `ecs_admin_user`;
 CREATE TABLE IF NOT EXISTS `ecs_admin_user` (
   `user_id` smallint(5) unsigned NOT NULL,
   `user_name` varchar(60) NOT NULL DEFAULT '',
@@ -755,11 +828,20 @@ CREATE TABLE IF NOT EXISTS `ecs_admin_user` (
 ) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 --
+-- 表的关联 `ecs_admin_user`:
+--
+
+--
+-- 插入之前先把表清空（truncate） `ecs_admin_user`
+--
+
+TRUNCATE TABLE `ecs_admin_user`;
+--
 -- 转存表中的数据 `ecs_admin_user`
 --
 
 INSERT INTO `ecs_admin_user` (`user_id`, `user_name`, `email`, `password`, `ec_salt`, `add_time`, `last_login`, `last_ip`, `action_list`, `nav_list`, `lang_type`, `agency_id`, `suppliers_id`, `todolist`, `role_id`) VALUES
-(1, 'admin', '1@1.com', 'eb410fa54e4f67b4a9e8d8b354b948b0', '6409', 1458770507, 1458770610, '127.0.0.1', 'all', '商品列表|goods.php?act=list,订单列表|order.php?act=list,用户评论|comment_manage.php?act=list,会员列表|users.php?act=list,商店设置|shop_config.php?act=list_edit', '', 0, 0, NULL, NULL),
+(1, 'admin', '1@1.com', 'dac35d3c106414895c141ca28eaabd77', '1937', 1458777710, 1458777825, '127.0.0.1', 'all', '商品列表|goods.php?act=list,订单列表|order.php?act=list,用户评论|comment_manage.php?act=list,会员列表|users.php?act=list,商店设置|shop_config.php?act=list_edit', '', 0, 0, NULL, NULL),
 (2, 'bjgonghuo1', 'bj@163.com', 'd0c015b6eb9a280f318a4c0510581e7e', NULL, 1245044099, 0, '', '', '商品列表|goods.php?act=list,订单列表|order.php?act=list,用户评论|comment_manage.php?act=list,会员列表|users.php?act=list,商店设置|shop_config.php?act=list_edit', '', 0, 1, '', NULL),
 (3, 'shhaigonghuo1', 'shanghai@163.com', '4146fecce77907d264f6bd873f4ea27b', NULL, 1245044202, 0, '', '', '商品列表|goods.php?act=list,订单列表|order.php?act=list,用户评论|comment_manage.php?act=list,会员列表|users.php?act=list,商店设置|shop_config.php?act=list_edit', '', 0, 2, '', NULL);
 
@@ -768,19 +850,36 @@ INSERT INTO `ecs_admin_user` (`user_id`, `user_name`, `email`, `password`, `ec_s
 --
 -- 表的结构 `ecs_adsense`
 --
+-- 创建时间： 2016-03-24 08:01:47
+-- 最后更新： 2016-03-24 08:01:47
+--
 
+DROP TABLE IF EXISTS `ecs_adsense`;
 CREATE TABLE IF NOT EXISTS `ecs_adsense` (
   `from_ad` smallint(5) NOT NULL DEFAULT '0',
   `referer` varchar(255) NOT NULL DEFAULT '',
   `clicks` int(10) unsigned NOT NULL DEFAULT '0'
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
+--
+-- 表的关联 `ecs_adsense`:
+--
+
+--
+-- 插入之前先把表清空（truncate） `ecs_adsense`
+--
+
+TRUNCATE TABLE `ecs_adsense`;
 -- --------------------------------------------------------
 
 --
 -- 表的结构 `ecs_ad_custom`
 --
+-- 创建时间： 2016-03-24 08:01:50
+-- 最后更新： 2016-03-24 08:01:50
+--
 
+DROP TABLE IF EXISTS `ecs_ad_custom`;
 CREATE TABLE IF NOT EXISTS `ecs_ad_custom` (
   `ad_id` mediumint(8) unsigned NOT NULL,
   `ad_type` tinyint(1) unsigned NOT NULL DEFAULT '1',
@@ -791,12 +890,25 @@ CREATE TABLE IF NOT EXISTS `ecs_ad_custom` (
   `ad_status` tinyint(3) unsigned NOT NULL DEFAULT '0'
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
+--
+-- 表的关联 `ecs_ad_custom`:
+--
+
+--
+-- 插入之前先把表清空（truncate） `ecs_ad_custom`
+--
+
+TRUNCATE TABLE `ecs_ad_custom`;
 -- --------------------------------------------------------
 
 --
 -- 表的结构 `ecs_ad_position`
 --
+-- 创建时间： 2016-03-24 08:01:47
+-- 最后更新： 2016-03-24 08:01:47
+--
 
+DROP TABLE IF EXISTS `ecs_ad_position`;
 CREATE TABLE IF NOT EXISTS `ecs_ad_position` (
   `position_id` tinyint(3) unsigned NOT NULL,
   `position_name` varchar(60) NOT NULL DEFAULT '',
@@ -806,12 +918,25 @@ CREATE TABLE IF NOT EXISTS `ecs_ad_position` (
   `position_style` text NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
+--
+-- 表的关联 `ecs_ad_position`:
+--
+
+--
+-- 插入之前先把表清空（truncate） `ecs_ad_position`
+--
+
+TRUNCATE TABLE `ecs_ad_position`;
 -- --------------------------------------------------------
 
 --
 -- 表的结构 `ecs_affiliate_log`
 --
+-- 创建时间： 2016-03-24 08:01:49
+-- 最后更新： 2016-03-24 08:01:49
+--
 
+DROP TABLE IF EXISTS `ecs_affiliate_log`;
 CREATE TABLE IF NOT EXISTS `ecs_affiliate_log` (
   `log_id` mediumint(8) NOT NULL,
   `order_id` mediumint(8) NOT NULL,
@@ -823,29 +948,64 @@ CREATE TABLE IF NOT EXISTS `ecs_affiliate_log` (
   `separate_type` tinyint(1) NOT NULL DEFAULT '0'
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
+--
+-- 表的关联 `ecs_affiliate_log`:
+--
+
+--
+-- 插入之前先把表清空（truncate） `ecs_affiliate_log`
+--
+
+TRUNCATE TABLE `ecs_affiliate_log`;
 -- --------------------------------------------------------
 
 --
 -- 表的结构 `ecs_agency`
 --
+-- 创建时间： 2016-03-24 08:01:49
+-- 最后更新： 2016-03-24 08:01:49
+--
 
+DROP TABLE IF EXISTS `ecs_agency`;
 CREATE TABLE IF NOT EXISTS `ecs_agency` (
   `agency_id` smallint(5) unsigned NOT NULL,
   `agency_name` varchar(255) NOT NULL,
   `agency_desc` text NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
+--
+-- 表的关联 `ecs_agency`:
+--
+
+--
+-- 插入之前先把表清空（truncate） `ecs_agency`
+--
+
+TRUNCATE TABLE `ecs_agency`;
 -- --------------------------------------------------------
 
 --
 -- 表的结构 `ecs_area_region`
 --
+-- 创建时间： 2016-03-24 08:01:47
+-- 最后更新： 2016-03-24 08:01:52
+--
 
+DROP TABLE IF EXISTS `ecs_area_region`;
 CREATE TABLE IF NOT EXISTS `ecs_area_region` (
   `shipping_area_id` smallint(5) unsigned NOT NULL DEFAULT '0',
   `region_id` smallint(5) unsigned NOT NULL DEFAULT '0'
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
+--
+-- 表的关联 `ecs_area_region`:
+--
+
+--
+-- 插入之前先把表清空（truncate） `ecs_area_region`
+--
+
+TRUNCATE TABLE `ecs_area_region`;
 --
 -- 转存表中的数据 `ecs_area_region`
 --
@@ -866,7 +1026,11 @@ INSERT INTO `ecs_area_region` (`shipping_area_id`, `region_id`) VALUES
 --
 -- 表的结构 `ecs_article`
 --
+-- 创建时间： 2016-03-24 08:01:47
+-- 最后更新： 2016-03-24 08:01:52
+--
 
+DROP TABLE IF EXISTS `ecs_article`;
 CREATE TABLE IF NOT EXISTS `ecs_article` (
   `article_id` mediumint(8) unsigned NOT NULL,
   `cat_id` smallint(5) NOT NULL DEFAULT '0',
@@ -885,16 +1049,25 @@ CREATE TABLE IF NOT EXISTS `ecs_article` (
 ) ENGINE=MyISAM AUTO_INCREMENT=36 DEFAULT CHARSET=utf8;
 
 --
+-- 表的关联 `ecs_article`:
+--
+
+--
+-- 插入之前先把表清空（truncate） `ecs_article`
+--
+
+TRUNCATE TABLE `ecs_article`;
+--
 -- 转存表中的数据 `ecs_article`
 --
 
 INSERT INTO `ecs_article` (`article_id`, `cat_id`, `title`, `content`, `author`, `author_email`, `keywords`, `article_type`, `is_open`, `add_time`, `file_url`, `open_type`, `link`, `description`) VALUES
-(1, 2, '免责条款', '', '', '', '', 0, 1, 1458799307, '', 0, '', NULL),
-(2, 2, '隐私保护', '', '', '', '', 0, 1, 1458799307, '', 0, '', NULL),
-(3, 2, '咨询热点', '', '', '', '', 0, 1, 1458799307, '', 0, '', NULL),
-(4, 2, '联系我们', '', '', '', '', 0, 1, 1458799307, '', 0, '', NULL),
-(5, 2, '公司简介', '', '', '', '', 0, 1, 1458799307, '', 0, '', NULL),
-(6, -1, '用户协议', '', '', '', '', 0, 1, 1458799307, '', 0, '', NULL),
+(1, 2, '免责条款', '', '', '', '', 0, 1, 1458806510, '', 0, '', NULL),
+(2, 2, '隐私保护', '', '', '', '', 0, 1, 1458806510, '', 0, '', NULL),
+(3, 2, '咨询热点', '', '', '', '', 0, 1, 1458806510, '', 0, '', NULL),
+(4, 2, '联系我们', '', '', '', '', 0, 1, 1458806510, '', 0, '', NULL),
+(5, 2, '公司简介', '', '', '', '', 0, 1, 1458806510, '', 0, '', NULL),
+(6, -1, '用户协议', '', '', '', '', 0, 1, 1458806510, '', 0, '', NULL),
 (7, 4, '三星电子宣布将在中国发布15款3G手机', '<p>全球领先的电子产品及第二大移动通信终端制造商三星电子今天在北京宣布，为全面支持中国开展3G移动通信业务，将在3G服务正式商用之际，向中国市场推出 15款3G手机。这些产品分别支持中国三大无线运营商的各种3G服务，并已经得到运营商的合作认可。凭借在电子和通信领域的整体技术实力和对消费者的准确 把握，三星电子已经开始全面发力中国的3G移动通信市场。<br />\n<br />\n&nbsp;&nbsp;&nbsp;&nbsp;2009年1月，中国政府宣布正式启动3G移动通信服务。并根据中国的实际情况，决定由三大运营商分别采用全部三种3G网络制式，&nbsp;即以中国自主知识产权为核心的TD-SCDMA，以欧洲为主要市场的WCDMA和源自北美的CDMA2000技术。<br />\n<br />\n&nbsp;&nbsp;&nbsp;&nbsp;多 年来，三星电子秉承&ldquo;做中国人民喜爱的企业，贡献于中国社会的企业&rdquo;的企业理念，准确地把握了中国社会的发展和市场的需求，推出了一系列深受中国消费者喜 爱的电子产品。为了配合中国推进具有自主知识产权的3G移动通信标准TD-SCDMA，&nbsp;三星电子从2000年开始在中国设立了通信技术研究院，&nbsp;开始进 行TD-SCDMA技术的研究。作为最早承诺支持中国3G标准的手机制造企业，三星电子已经先后投入了上亿元的研究费用，&nbsp;组建了几百人的研发团队。推出 的TD-SCDMA制式的产品，不仅通过了各级权威部门的试验和检测，也经历了2008年北京奥运会的现场考验。此次为中国移动定制的TD-SCDMA手 机，包括了满足高端商务需求的双待产品B7702C，以及数字电视手机、多媒体手机和时尚手机。<br />\n<br />\n&nbsp;&nbsp;&nbsp;&nbsp;作为世界第二大手机制造企业，三 星电子已经在全球3G市场积累了多年的技术和市场经验。最新的统计表明，在完全采用WCDMA标准的欧洲，三星电子的市场份额已经排名第二。在为中国联通 准备的产品中，不仅包括能够支持HSDPA的高端多媒体手机S7520U，也涵盖了能够支持高速上网、在线电影、在线音乐等适合不同消费需求的各种产品。<br />\n<br />\n&nbsp;&nbsp;&nbsp;&nbsp;而 在主要采用CDMA2000技术的北美市场，三星电子也取得了市场份额的第一名。即将陆续上市的支持中国电信3G服务的EVDO产品，有高端商务手机 W709。该机能够支持EVDO/GSM的双网双待功能，含800万像素拍摄系统。其他产品还包括音乐手机M609，双模手机W239，以及时尚设计的 F539等。<br />\n<br />\n&nbsp;&nbsp;&nbsp;&nbsp;作为世界上少数能够提供支持三种3G标准的终端厂商，三星电子正利用其在通信、半导体、显示器以及数字多媒体等方面 的优势，加快产品数字融合的进程。除上述3G手机产品外，三星电子也于近期推出了用于3G网络的上网卡和网络笔记本电脑。三星电子专务、无线事业部大中华 区高级副总裁卢基学先生说，&ldquo;上述15款新品，&nbsp;只是我们二季度新产品的一部分。随着中国3G移动通信市场的不断扩大，三星还将推出更多适合中国市场的终 端产品，以满足消费者对于通信和数字产品的不同需求。三星也将积极配合运营商业务的发展计划，加快技术和应用的研发。中国3G的移动通信市场前景将是非常 明亮的。&rdquo;</p>', '', '', '', 0, 1, 1241426864, '', 0, 'http://', NULL),
 (8, 4, '诺基亚牵手移动 5款热门TD手机机型推荐', '<table width="100%" cellspacing="0" cellpadding="4" align="center" class="tableborder">\r\n<tbody>\r\n<tr>\r\n<td width="180" valign="top" class="altbg4">&nbsp;</td>\r\n<td height="100%" valign="top" class="altbg3">\r\n<table cellspacing="0" cellpadding="0" border="0" style="padding: 5px; table-layout: fixed; width: 973px; height: 2195px;">\r\n<tbody>\r\n<tr>\r\n<td valign="top">\r\n<div class="bbs_content clearfix">随着5月17日电信日的来临，自从09年初网民对于3G方面关注越来越多，目前国内3G网络主要有中国移动TD-SCDMA，中国联通WCDMA以及 中国电信的CDMA2000这三种制式。到底是哪一种网络制式能让消费者满意，相信好多消费者都难以判断。<br />\r\n<br />\r\n而作为3G网络最主要的组 成部分-手持终端（手机） ，相信也是好多消费者关注的焦点。目前，中国移动TD-SCDMA手机机型频频爆出，其中不乏亮点产品，像联想联想 Ophone、诺基亚、多普达 Magic等，下面就让笔者与大家一起来了解TD-SCDMA网络制式下的几款强势机型吧。<br />\r\n<br />\r\n诺基亚TD-SCDMA手机　型号：待定　参考报价：尚未上市<br />\r\n<br />\r\n随着国内3G网络发展速度加快及众多手机厂商纷纷跟进，诺基亚终于推出TD-SCDMA手机，这款诺基亚的首台TD-SCDMA测试手机型号目前仍无法 得知，但从键盘及菜单设计来看，我们可以是知道其并没有采用S60操作系统，只是配备了S40系统，机身直板造型与早期热卖的6300有几分相像。<br />\r\n<br />\r\n<p><img width="450" alt="" src="http://dstatic.esqimg.com/4812278/1.jpg" style="display: block;" /></p>\r\n<br />\r\n<br />\r\n图为：诺基亚TD-SCDMA手机<br />\r\n<br />\r\n虽然没有更多的参数资料，但是从曝光的图片我们可以知道这款诺基亚TD-SCDMA手机必定配备了QVGA分辨率的屏幕以及320万像素的摄像头，而标准的MP3以及蓝牙等功能自然不会缺少，在功能方面不会比以往的S40手机逊色。<br />\r\n<br />\r\n<p><img width="450" alt="" src="http://dstatic.esqimg.com/4812279/2.jpg" style="display: block;" /></p>\r\n<br />\r\n<br />\r\n图为：诺基亚TD-SCDMA手机<br />\r\n<br />\r\n这款诺基亚的TD手机最大的卖点便是提供了对TD-HSDPA技术的支持，最大的功能特色便是该技术被看为是TD网络下一步的演进技术，能够同时适用于 WCDMA和TD-SCDMA两种不同的网络支持，能够很好的支持非对称的数据业务，也就是说这款诺基亚手机的用户即便在全球漫游都能够使用到3G网络。 而其机身前置的摄像头也更是证实了其3G手机的身份。<br />\r\n<br />\r\n<p><img width="450" alt="" src="http://dstatic.esqimg.com/4812280/3.jpg" style="display: block;" /></p>\r\n<p><br />\r\n<br />\r\n图为：诺基亚TD-SCDMA手机<br />\r\n<br />\r\n从目前曝光的测试情况来看，通过这款诺基亚TD手机连接网络，其下载速度能够稳定在1.3Mbps左右，不过根据国内有些媒体的报道，诺基亚官方已经证实将于今天下半年配合运营商中国移动对出自己的第一款TD-SCDMA制式的S60手机，大家要拭目以待了。</p>\r\n<p>&nbsp;</p>\r\n图为：诺基亚TD-SCDMA手机<br />\r\n<br />\r\n最后较为耐人寻味的便是目前有业内人士指出目前曝光的的诺基亚TD手机其实是去年夏季就出现过的 TD测试手机，但是随着诺基亚拥有部分股份的TD芯片厂商&ldquo;凯明&rdquo;的倒闭，这款机型也就被取消了。尽管对于目前这款诺基亚的TD测试手机的身份尚无官方的 消息，但是诺基亚将推出TD手机遗失毫无悬念的事情了，相信大家也希望在TD制式下能够有更多的手机可以选择。</div>\r\n</td>\r\n</tr>\r\n</tbody>\r\n</table>\r\n</td>\r\n</tr>\r\n</tbody>\r\n</table>\r\n<p>&nbsp;</p>', '', '', '', 0, 1, 1241427051, '', 0, 'http://', NULL),
 (9, 5, '售后流程', '', '', '', '', 0, 1, 1242576700, '', 0, 'http://', NULL),
@@ -930,7 +1103,11 @@ INSERT INTO `ecs_article` (`article_id`, `cat_id`, `title`, `content`, `author`,
 --
 -- 表的结构 `ecs_article_cat`
 --
+-- 创建时间： 2016-03-24 08:01:47
+-- 最后更新： 2016-03-24 08:01:52
+--
 
+DROP TABLE IF EXISTS `ecs_article_cat`;
 CREATE TABLE IF NOT EXISTS `ecs_article_cat` (
   `cat_id` smallint(5) NOT NULL,
   `cat_name` varchar(255) NOT NULL DEFAULT '',
@@ -942,6 +1119,15 @@ CREATE TABLE IF NOT EXISTS `ecs_article_cat` (
   `parent_id` smallint(5) unsigned NOT NULL DEFAULT '0'
 ) ENGINE=MyISAM AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
 
+--
+-- 表的关联 `ecs_article_cat`:
+--
+
+--
+-- 插入之前先把表清空（truncate） `ecs_article_cat`
+--
+
+TRUNCATE TABLE `ecs_article_cat`;
 --
 -- 转存表中的数据 `ecs_article_cat`
 --
@@ -965,7 +1151,11 @@ INSERT INTO `ecs_article_cat` (`cat_id`, `cat_name`, `cat_type`, `keywords`, `ca
 --
 -- 表的结构 `ecs_attribute`
 --
+-- 创建时间： 2016-03-24 08:01:47
+-- 最后更新： 2016-03-24 08:01:52
+--
 
+DROP TABLE IF EXISTS `ecs_attribute`;
 CREATE TABLE IF NOT EXISTS `ecs_attribute` (
   `attr_id` smallint(5) unsigned NOT NULL,
   `cat_id` smallint(5) unsigned NOT NULL DEFAULT '0',
@@ -979,6 +1169,15 @@ CREATE TABLE IF NOT EXISTS `ecs_attribute` (
   `attr_group` tinyint(1) unsigned NOT NULL DEFAULT '0'
 ) ENGINE=MyISAM AUTO_INCREMENT=211 DEFAULT CHARSET=utf8;
 
+--
+-- 表的关联 `ecs_attribute`:
+--
+
+--
+-- 插入之前先把表清空（truncate） `ecs_attribute`
+--
+
+TRUNCATE TABLE `ecs_attribute`;
 --
 -- 转存表中的数据 `ecs_attribute`
 --
@@ -1200,7 +1399,11 @@ INSERT INTO `ecs_attribute` (`attr_id`, `cat_id`, `attr_name`, `attr_input_type`
 --
 -- 表的结构 `ecs_auction_log`
 --
+-- 创建时间： 2016-03-24 08:01:49
+-- 最后更新： 2016-03-24 08:01:52
+--
 
+DROP TABLE IF EXISTS `ecs_auction_log`;
 CREATE TABLE IF NOT EXISTS `ecs_auction_log` (
   `log_id` mediumint(8) unsigned NOT NULL,
   `act_id` mediumint(8) unsigned NOT NULL,
@@ -1209,6 +1412,15 @@ CREATE TABLE IF NOT EXISTS `ecs_auction_log` (
   `bid_time` int(10) unsigned NOT NULL
 ) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
+--
+-- 表的关联 `ecs_auction_log`:
+--
+
+--
+-- 插入之前先把表清空（truncate） `ecs_auction_log`
+--
+
+TRUNCATE TABLE `ecs_auction_log`;
 --
 -- 转存表中的数据 `ecs_auction_log`
 --
@@ -1221,7 +1433,11 @@ INSERT INTO `ecs_auction_log` (`log_id`, `act_id`, `bid_user`, `bid_price`, `bid
 --
 -- 表的结构 `ecs_auto_manage`
 --
+-- 创建时间： 2016-03-24 08:01:50
+-- 最后更新： 2016-03-24 08:01:50
+--
 
+DROP TABLE IF EXISTS `ecs_auto_manage`;
 CREATE TABLE IF NOT EXISTS `ecs_auto_manage` (
   `item_id` mediumint(8) NOT NULL,
   `type` varchar(10) NOT NULL,
@@ -1229,12 +1445,25 @@ CREATE TABLE IF NOT EXISTS `ecs_auto_manage` (
   `endtime` int(10) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
+--
+-- 表的关联 `ecs_auto_manage`:
+--
+
+--
+-- 插入之前先把表清空（truncate） `ecs_auto_manage`
+--
+
+TRUNCATE TABLE `ecs_auto_manage`;
 -- --------------------------------------------------------
 
 --
 -- 表的结构 `ecs_back_goods`
 --
+-- 创建时间： 2016-03-24 08:01:50
+-- 最后更新： 2016-03-24 08:01:50
+--
 
+DROP TABLE IF EXISTS `ecs_back_goods`;
 CREATE TABLE IF NOT EXISTS `ecs_back_goods` (
   `rec_id` mediumint(8) unsigned NOT NULL,
   `back_id` mediumint(8) unsigned DEFAULT '0',
@@ -1249,12 +1478,25 @@ CREATE TABLE IF NOT EXISTS `ecs_back_goods` (
   `goods_attr` text
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
+--
+-- 表的关联 `ecs_back_goods`:
+--
+
+--
+-- 插入之前先把表清空（truncate） `ecs_back_goods`
+--
+
+TRUNCATE TABLE `ecs_back_goods`;
 -- --------------------------------------------------------
 
 --
 -- 表的结构 `ecs_back_order`
 --
+-- 创建时间： 2016-03-24 08:01:50
+-- 最后更新： 2016-03-24 08:01:52
+--
 
+DROP TABLE IF EXISTS `ecs_back_order`;
 CREATE TABLE IF NOT EXISTS `ecs_back_order` (
   `back_id` mediumint(8) unsigned NOT NULL,
   `delivery_sn` varchar(20) NOT NULL,
@@ -1290,6 +1532,15 @@ CREATE TABLE IF NOT EXISTS `ecs_back_order` (
 ) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 --
+-- 表的关联 `ecs_back_order`:
+--
+
+--
+-- 插入之前先把表清空（truncate） `ecs_back_order`
+--
+
+TRUNCATE TABLE `ecs_back_order`;
+--
 -- 转存表中的数据 `ecs_back_order`
 --
 
@@ -1304,7 +1555,11 @@ INSERT INTO `ecs_back_order` (`back_id`, `delivery_sn`, `order_sn`, `order_id`, 
 --
 -- 表的结构 `ecs_bonus_type`
 --
+-- 创建时间： 2016-03-24 08:01:48
+-- 最后更新： 2016-03-24 08:01:52
+--
 
+DROP TABLE IF EXISTS `ecs_bonus_type`;
 CREATE TABLE IF NOT EXISTS `ecs_bonus_type` (
   `type_id` smallint(5) unsigned NOT NULL,
   `type_name` varchar(60) NOT NULL DEFAULT '',
@@ -1320,6 +1575,15 @@ CREATE TABLE IF NOT EXISTS `ecs_bonus_type` (
 ) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 --
+-- 表的关联 `ecs_bonus_type`:
+--
+
+--
+-- 插入之前先把表清空（truncate） `ecs_bonus_type`
+--
+
+TRUNCATE TABLE `ecs_bonus_type`;
+--
 -- 转存表中的数据 `ecs_bonus_type`
 --
 
@@ -1334,7 +1598,11 @@ INSERT INTO `ecs_bonus_type` (`type_id`, `type_name`, `type_money`, `send_type`,
 --
 -- 表的结构 `ecs_booking_goods`
 --
+-- 创建时间： 2016-03-24 08:01:48
+-- 最后更新： 2016-03-24 08:01:52
+--
 
+DROP TABLE IF EXISTS `ecs_booking_goods`;
 CREATE TABLE IF NOT EXISTS `ecs_booking_goods` (
   `rec_id` mediumint(8) unsigned NOT NULL,
   `user_id` mediumint(8) unsigned NOT NULL DEFAULT '0',
@@ -1352,6 +1620,15 @@ CREATE TABLE IF NOT EXISTS `ecs_booking_goods` (
 ) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 --
+-- 表的关联 `ecs_booking_goods`:
+--
+
+--
+-- 插入之前先把表清空（truncate） `ecs_booking_goods`
+--
+
+TRUNCATE TABLE `ecs_booking_goods`;
+--
 -- 转存表中的数据 `ecs_booking_goods`
 --
 
@@ -1364,7 +1641,11 @@ INSERT INTO `ecs_booking_goods` (`rec_id`, `user_id`, `email`, `link_man`, `tel`
 --
 -- 表的结构 `ecs_brand`
 --
+-- 创建时间： 2016-03-24 08:01:48
+-- 最后更新： 2016-03-24 08:01:48
+--
 
+DROP TABLE IF EXISTS `ecs_brand`;
 CREATE TABLE IF NOT EXISTS `ecs_brand` (
   `brand_id` smallint(5) unsigned NOT NULL,
   `brand_name` varchar(60) NOT NULL DEFAULT '',
@@ -1375,6 +1656,15 @@ CREATE TABLE IF NOT EXISTS `ecs_brand` (
   `is_show` tinyint(1) unsigned NOT NULL DEFAULT '1'
 ) ENGINE=MyISAM AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
 
+--
+-- 表的关联 `ecs_brand`:
+--
+
+--
+-- 插入之前先把表清空（truncate） `ecs_brand`
+--
+
+TRUNCATE TABLE `ecs_brand`;
 --
 -- 转存表中的数据 `ecs_brand`
 --
@@ -1397,7 +1687,11 @@ INSERT INTO `ecs_brand` (`brand_id`, `brand_name`, `brand_logo`, `brand_desc`, `
 --
 -- 表的结构 `ecs_card`
 --
+-- 创建时间： 2016-03-24 08:01:48
+-- 最后更新： 2016-03-24 08:01:52
+--
 
+DROP TABLE IF EXISTS `ecs_card`;
 CREATE TABLE IF NOT EXISTS `ecs_card` (
   `card_id` tinyint(3) unsigned NOT NULL,
   `card_name` varchar(120) NOT NULL DEFAULT '',
@@ -1407,6 +1701,15 @@ CREATE TABLE IF NOT EXISTS `ecs_card` (
   `card_desc` varchar(255) NOT NULL DEFAULT ''
 ) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
+--
+-- 表的关联 `ecs_card`:
+--
+
+--
+-- 插入之前先把表清空（truncate） `ecs_card`
+--
+
+TRUNCATE TABLE `ecs_card`;
 --
 -- 转存表中的数据 `ecs_card`
 --
@@ -1419,7 +1722,11 @@ INSERT INTO `ecs_card` (`card_id`, `card_name`, `card_img`, `card_fee`, `free_mo
 --
 -- 表的结构 `ecs_cart`
 --
+-- 创建时间： 2016-03-24 08:01:48
+-- 最后更新： 2016-03-24 08:02:08
+--
 
+DROP TABLE IF EXISTS `ecs_cart`;
 CREATE TABLE IF NOT EXISTS `ecs_cart` (
   `rec_id` mediumint(8) unsigned NOT NULL,
   `user_id` mediumint(8) unsigned NOT NULL DEFAULT '0',
@@ -1442,12 +1749,25 @@ CREATE TABLE IF NOT EXISTS `ecs_cart` (
   `goods_attr_id` varchar(255) NOT NULL DEFAULT ''
 ) ENGINE=MyISAM AUTO_INCREMENT=43 DEFAULT CHARSET=utf8;
 
+--
+-- 表的关联 `ecs_cart`:
+--
+
+--
+-- 插入之前先把表清空（truncate） `ecs_cart`
+--
+
+TRUNCATE TABLE `ecs_cart`;
 -- --------------------------------------------------------
 
 --
 -- 表的结构 `ecs_category`
 --
+-- 创建时间： 2016-03-24 08:01:48
+-- 最后更新： 2016-03-24 08:01:52
+--
 
+DROP TABLE IF EXISTS `ecs_category`;
 CREATE TABLE IF NOT EXISTS `ecs_category` (
   `cat_id` smallint(5) unsigned NOT NULL,
   `cat_name` varchar(90) NOT NULL DEFAULT '',
@@ -1464,6 +1784,15 @@ CREATE TABLE IF NOT EXISTS `ecs_category` (
   `filter_attr` varchar(255) NOT NULL DEFAULT '0'
 ) ENGINE=MyISAM AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
 
+--
+-- 表的关联 `ecs_category`:
+--
+
+--
+-- 插入之前先把表清空（truncate） `ecs_category`
+--
+
+TRUNCATE TABLE `ecs_category`;
 --
 -- 转存表中的数据 `ecs_category`
 --
@@ -1489,12 +1818,25 @@ INSERT INTO `ecs_category` (`cat_id`, `cat_name`, `keywords`, `cat_desc`, `paren
 --
 -- 表的结构 `ecs_cat_recommend`
 --
+-- 创建时间： 2016-03-24 08:01:50
+-- 最后更新： 2016-03-24 08:01:52
+--
 
+DROP TABLE IF EXISTS `ecs_cat_recommend`;
 CREATE TABLE IF NOT EXISTS `ecs_cat_recommend` (
   `cat_id` smallint(5) NOT NULL,
   `recommend_type` tinyint(1) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
+--
+-- 表的关联 `ecs_cat_recommend`:
+--
+
+--
+-- 插入之前先把表清空（truncate） `ecs_cat_recommend`
+--
+
+TRUNCATE TABLE `ecs_cat_recommend`;
 --
 -- 转存表中的数据 `ecs_cat_recommend`
 --
@@ -1520,7 +1862,11 @@ INSERT INTO `ecs_cat_recommend` (`cat_id`, `recommend_type`) VALUES
 --
 -- 表的结构 `ecs_collect_goods`
 --
+-- 创建时间： 2016-03-24 08:01:48
+-- 最后更新： 2016-03-24 08:01:48
+--
 
+DROP TABLE IF EXISTS `ecs_collect_goods`;
 CREATE TABLE IF NOT EXISTS `ecs_collect_goods` (
   `rec_id` mediumint(8) unsigned NOT NULL,
   `user_id` mediumint(8) unsigned NOT NULL DEFAULT '0',
@@ -1529,12 +1875,25 @@ CREATE TABLE IF NOT EXISTS `ecs_collect_goods` (
   `is_attention` tinyint(1) NOT NULL DEFAULT '0'
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
+--
+-- 表的关联 `ecs_collect_goods`:
+--
+
+--
+-- 插入之前先把表清空（truncate） `ecs_collect_goods`
+--
+
+TRUNCATE TABLE `ecs_collect_goods`;
 -- --------------------------------------------------------
 
 --
 -- 表的结构 `ecs_comment`
 --
+-- 创建时间： 2016-03-24 08:01:48
+-- 最后更新： 2016-03-24 08:01:52
+--
 
+DROP TABLE IF EXISTS `ecs_comment`;
 CREATE TABLE IF NOT EXISTS `ecs_comment` (
   `comment_id` int(10) unsigned NOT NULL,
   `comment_type` tinyint(3) unsigned NOT NULL DEFAULT '0',
@@ -1551,6 +1910,15 @@ CREATE TABLE IF NOT EXISTS `ecs_comment` (
 ) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 --
+-- 表的关联 `ecs_comment`:
+--
+
+--
+-- 插入之前先把表清空（truncate） `ecs_comment`
+--
+
+TRUNCATE TABLE `ecs_comment`;
+--
 -- 转存表中的数据 `ecs_comment`
 --
 
@@ -1563,7 +1931,11 @@ INSERT INTO `ecs_comment` (`comment_id`, `comment_type`, `id_value`, `email`, `u
 --
 -- 表的结构 `ecs_crons`
 --
+-- 创建时间： 2016-03-24 08:01:48
+-- 最后更新： 2016-03-24 08:01:48
+--
 
+DROP TABLE IF EXISTS `ecs_crons`;
 CREATE TABLE IF NOT EXISTS `ecs_crons` (
   `cron_id` tinyint(3) unsigned NOT NULL,
   `cron_code` varchar(20) NOT NULL,
@@ -1583,12 +1955,25 @@ CREATE TABLE IF NOT EXISTS `ecs_crons` (
   `alow_files` varchar(255) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
+--
+-- 表的关联 `ecs_crons`:
+--
+
+--
+-- 插入之前先把表清空（truncate） `ecs_crons`
+--
+
+TRUNCATE TABLE `ecs_crons`;
 -- --------------------------------------------------------
 
 --
 -- 表的结构 `ecs_delivery_goods`
 --
+-- 创建时间： 2016-03-24 08:01:50
+-- 最后更新： 2016-03-24 08:01:52
+--
 
+DROP TABLE IF EXISTS `ecs_delivery_goods`;
 CREATE TABLE IF NOT EXISTS `ecs_delivery_goods` (
   `rec_id` mediumint(8) unsigned NOT NULL,
   `delivery_id` mediumint(8) unsigned NOT NULL DEFAULT '0',
@@ -1605,6 +1990,15 @@ CREATE TABLE IF NOT EXISTS `ecs_delivery_goods` (
   `goods_attr` text
 ) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 
+--
+-- 表的关联 `ecs_delivery_goods`:
+--
+
+--
+-- 插入之前先把表清空（truncate） `ecs_delivery_goods`
+--
+
+TRUNCATE TABLE `ecs_delivery_goods`;
 --
 -- 转存表中的数据 `ecs_delivery_goods`
 --
@@ -1624,7 +2018,11 @@ INSERT INTO `ecs_delivery_goods` (`rec_id`, `delivery_id`, `goods_id`, `product_
 --
 -- 表的结构 `ecs_delivery_order`
 --
+-- 创建时间： 2016-03-24 08:01:50
+-- 最后更新： 2016-03-24 08:01:52
+--
 
+DROP TABLE IF EXISTS `ecs_delivery_order`;
 CREATE TABLE IF NOT EXISTS `ecs_delivery_order` (
   `delivery_id` mediumint(8) unsigned NOT NULL,
   `delivery_sn` varchar(20) NOT NULL,
@@ -1659,6 +2057,15 @@ CREATE TABLE IF NOT EXISTS `ecs_delivery_order` (
 ) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 --
+-- 表的关联 `ecs_delivery_order`:
+--
+
+--
+-- 插入之前先把表清空（truncate） `ecs_delivery_order`
+--
+
+TRUNCATE TABLE `ecs_delivery_order`;
+--
 -- 转存表中的数据 `ecs_delivery_order`
 --
 
@@ -1674,7 +2081,11 @@ INSERT INTO `ecs_delivery_order` (`delivery_id`, `delivery_sn`, `order_sn`, `ord
 --
 -- 表的结构 `ecs_email_list`
 --
+-- 创建时间： 2016-03-24 08:01:50
+-- 最后更新： 2016-03-24 08:01:50
+--
 
+DROP TABLE IF EXISTS `ecs_email_list`;
 CREATE TABLE IF NOT EXISTS `ecs_email_list` (
   `id` mediumint(8) NOT NULL,
   `email` varchar(60) NOT NULL,
@@ -1682,12 +2093,25 @@ CREATE TABLE IF NOT EXISTS `ecs_email_list` (
   `hash` varchar(10) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
+--
+-- 表的关联 `ecs_email_list`:
+--
+
+--
+-- 插入之前先把表清空（truncate） `ecs_email_list`
+--
+
+TRUNCATE TABLE `ecs_email_list`;
 -- --------------------------------------------------------
 
 --
 -- 表的结构 `ecs_email_sendlist`
 --
+-- 创建时间： 2016-03-24 08:01:50
+-- 最后更新： 2016-03-24 08:01:50
+--
 
+DROP TABLE IF EXISTS `ecs_email_sendlist`;
 CREATE TABLE IF NOT EXISTS `ecs_email_sendlist` (
   `id` mediumint(8) NOT NULL,
   `email` varchar(100) NOT NULL,
@@ -1698,12 +2122,25 @@ CREATE TABLE IF NOT EXISTS `ecs_email_sendlist` (
   `last_send` int(10) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
+--
+-- 表的关联 `ecs_email_sendlist`:
+--
+
+--
+-- 插入之前先把表清空（truncate） `ecs_email_sendlist`
+--
+
+TRUNCATE TABLE `ecs_email_sendlist`;
 -- --------------------------------------------------------
 
 --
 -- 表的结构 `ecs_error_log`
 --
+-- 创建时间： 2016-03-24 08:01:48
+-- 最后更新： 2016-03-24 08:01:48
+--
 
+DROP TABLE IF EXISTS `ecs_error_log`;
 CREATE TABLE IF NOT EXISTS `ecs_error_log` (
   `id` int(10) NOT NULL,
   `info` varchar(255) NOT NULL,
@@ -1711,12 +2148,25 @@ CREATE TABLE IF NOT EXISTS `ecs_error_log` (
   `time` int(10) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
+--
+-- 表的关联 `ecs_error_log`:
+--
+
+--
+-- 插入之前先把表清空（truncate） `ecs_error_log`
+--
+
+TRUNCATE TABLE `ecs_error_log`;
 -- --------------------------------------------------------
 
 --
 -- 表的结构 `ecs_exchange_goods`
 --
+-- 创建时间： 2016-03-24 08:01:50
+-- 最后更新： 2016-03-24 08:01:52
+--
 
+DROP TABLE IF EXISTS `ecs_exchange_goods`;
 CREATE TABLE IF NOT EXISTS `ecs_exchange_goods` (
   `goods_id` mediumint(8) unsigned NOT NULL DEFAULT '0',
   `exchange_integral` int(10) unsigned NOT NULL DEFAULT '0',
@@ -1724,6 +2174,15 @@ CREATE TABLE IF NOT EXISTS `ecs_exchange_goods` (
   `is_hot` tinyint(1) unsigned NOT NULL DEFAULT '0'
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
+--
+-- 表的关联 `ecs_exchange_goods`:
+--
+
+--
+-- 插入之前先把表清空（truncate） `ecs_exchange_goods`
+--
+
+TRUNCATE TABLE `ecs_exchange_goods`;
 --
 -- 转存表中的数据 `ecs_exchange_goods`
 --
@@ -1737,7 +2196,11 @@ INSERT INTO `ecs_exchange_goods` (`goods_id`, `exchange_integral`, `is_exchange`
 --
 -- 表的结构 `ecs_favourable_activity`
 --
+-- 创建时间： 2016-03-24 08:01:49
+-- 最后更新： 2016-03-24 08:01:52
+--
 
+DROP TABLE IF EXISTS `ecs_favourable_activity`;
 CREATE TABLE IF NOT EXISTS `ecs_favourable_activity` (
   `act_id` smallint(5) unsigned NOT NULL,
   `act_name` varchar(255) NOT NULL,
@@ -1755,6 +2218,15 @@ CREATE TABLE IF NOT EXISTS `ecs_favourable_activity` (
 ) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 --
+-- 表的关联 `ecs_favourable_activity`:
+--
+
+--
+-- 插入之前先把表清空（truncate） `ecs_favourable_activity`
+--
+
+TRUNCATE TABLE `ecs_favourable_activity`;
+--
 -- 转存表中的数据 `ecs_favourable_activity`
 --
 
@@ -1766,7 +2238,11 @@ INSERT INTO `ecs_favourable_activity` (`act_id`, `act_name`, `start_time`, `end_
 --
 -- 表的结构 `ecs_feedback`
 --
+-- 创建时间： 2016-03-24 08:01:48
+-- 最后更新： 2016-03-24 08:01:52
+--
 
+DROP TABLE IF EXISTS `ecs_feedback`;
 CREATE TABLE IF NOT EXISTS `ecs_feedback` (
   `msg_id` mediumint(8) unsigned NOT NULL,
   `parent_id` mediumint(8) unsigned NOT NULL DEFAULT '0',
@@ -1784,6 +2260,15 @@ CREATE TABLE IF NOT EXISTS `ecs_feedback` (
 ) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 --
+-- 表的关联 `ecs_feedback`:
+--
+
+--
+-- 插入之前先把表清空（truncate） `ecs_feedback`
+--
+
+TRUNCATE TABLE `ecs_feedback`;
+--
 -- 转存表中的数据 `ecs_feedback`
 --
 
@@ -1795,7 +2280,11 @@ INSERT INTO `ecs_feedback` (`msg_id`, `parent_id`, `user_id`, `user_name`, `user
 --
 -- 表的结构 `ecs_friend_link`
 --
+-- 创建时间： 2016-03-24 08:01:48
+-- 最后更新： 2016-03-24 08:02:01
+--
 
+DROP TABLE IF EXISTS `ecs_friend_link`;
 CREATE TABLE IF NOT EXISTS `ecs_friend_link` (
   `link_id` smallint(5) unsigned NOT NULL,
   `link_name` varchar(255) NOT NULL DEFAULT '',
@@ -1804,6 +2293,15 @@ CREATE TABLE IF NOT EXISTS `ecs_friend_link` (
   `show_order` tinyint(3) unsigned NOT NULL DEFAULT '50'
 ) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
+--
+-- 表的关联 `ecs_friend_link`:
+--
+
+--
+-- 插入之前先把表清空（truncate） `ecs_friend_link`
+--
+
+TRUNCATE TABLE `ecs_friend_link`;
 --
 -- 转存表中的数据 `ecs_friend_link`
 --
@@ -1818,7 +2316,11 @@ INSERT INTO `ecs_friend_link` (`link_id`, `link_name`, `link_url`, `link_logo`, 
 --
 -- 表的结构 `ecs_goods`
 --
+-- 创建时间： 2016-03-24 08:01:48
+-- 最后更新： 2016-03-24 08:01:48
+--
 
+DROP TABLE IF EXISTS `ecs_goods`;
 CREATE TABLE IF NOT EXISTS `ecs_goods` (
   `goods_id` mediumint(8) unsigned NOT NULL,
   `cat_id` smallint(5) unsigned NOT NULL DEFAULT '0',
@@ -1866,6 +2368,15 @@ CREATE TABLE IF NOT EXISTS `ecs_goods` (
 ) ENGINE=MyISAM AUTO_INCREMENT=33 DEFAULT CHARSET=utf8;
 
 --
+-- 表的关联 `ecs_goods`:
+--
+
+--
+-- 插入之前先把表清空（truncate） `ecs_goods`
+--
+
+TRUNCATE TABLE `ecs_goods`;
+--
 -- 转存表中的数据 `ecs_goods`
 --
 
@@ -1908,7 +2419,11 @@ INSERT INTO `ecs_goods` (`goods_id`, `cat_id`, `goods_sn`, `goods_name`, `goods_
 --
 -- 表的结构 `ecs_goods_activity`
 --
+-- 创建时间： 2016-03-24 08:01:49
+-- 最后更新： 2016-03-24 08:01:52
+--
 
+DROP TABLE IF EXISTS `ecs_goods_activity`;
 CREATE TABLE IF NOT EXISTS `ecs_goods_activity` (
   `act_id` mediumint(8) unsigned NOT NULL,
   `act_name` varchar(255) NOT NULL,
@@ -1923,6 +2438,15 @@ CREATE TABLE IF NOT EXISTS `ecs_goods_activity` (
   `ext_info` text NOT NULL
 ) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 
+--
+-- 表的关联 `ecs_goods_activity`:
+--
+
+--
+-- 插入之前先把表清空（truncate） `ecs_goods_activity`
+--
+
+TRUNCATE TABLE `ecs_goods_activity`;
 --
 -- 转存表中的数据 `ecs_goods_activity`
 --
@@ -1942,13 +2466,26 @@ INSERT INTO `ecs_goods_activity` (`act_id`, `act_name`, `act_desc`, `act_type`, 
 --
 -- 表的结构 `ecs_goods_article`
 --
+-- 创建时间： 2016-03-24 08:01:48
+-- 最后更新： 2016-03-24 08:01:52
+--
 
+DROP TABLE IF EXISTS `ecs_goods_article`;
 CREATE TABLE IF NOT EXISTS `ecs_goods_article` (
   `goods_id` mediumint(8) unsigned NOT NULL DEFAULT '0',
   `article_id` mediumint(8) unsigned NOT NULL DEFAULT '0',
   `admin_id` tinyint(3) unsigned NOT NULL DEFAULT '0'
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
+--
+-- 表的关联 `ecs_goods_article`:
+--
+
+--
+-- 插入之前先把表清空（truncate） `ecs_goods_article`
+--
+
+TRUNCATE TABLE `ecs_goods_article`;
 --
 -- 转存表中的数据 `ecs_goods_article`
 --
@@ -1971,7 +2508,11 @@ INSERT INTO `ecs_goods_article` (`goods_id`, `article_id`, `admin_id`) VALUES
 --
 -- 表的结构 `ecs_goods_attr`
 --
+-- 创建时间： 2016-03-24 08:01:48
+-- 最后更新： 2016-03-24 08:01:48
+--
 
+DROP TABLE IF EXISTS `ecs_goods_attr`;
 CREATE TABLE IF NOT EXISTS `ecs_goods_attr` (
   `goods_attr_id` int(10) unsigned NOT NULL,
   `goods_id` mediumint(8) unsigned NOT NULL DEFAULT '0',
@@ -1980,6 +2521,15 @@ CREATE TABLE IF NOT EXISTS `ecs_goods_attr` (
   `attr_price` varchar(255) NOT NULL DEFAULT ''
 ) ENGINE=MyISAM AUTO_INCREMENT=241 DEFAULT CHARSET=utf8;
 
+--
+-- 表的关联 `ecs_goods_attr`:
+--
+
+--
+-- 插入之前先把表清空（truncate） `ecs_goods_attr`
+--
+
+TRUNCATE TABLE `ecs_goods_attr`;
 --
 -- 转存表中的数据 `ecs_goods_attr`
 --
@@ -2080,12 +2630,25 @@ INSERT INTO `ecs_goods_attr` (`goods_attr_id`, `goods_id`, `attr_id`, `attr_valu
 --
 -- 表的结构 `ecs_goods_cat`
 --
+-- 创建时间： 2016-03-24 08:01:48
+-- 最后更新： 2016-03-24 08:01:52
+--
 
+DROP TABLE IF EXISTS `ecs_goods_cat`;
 CREATE TABLE IF NOT EXISTS `ecs_goods_cat` (
   `goods_id` mediumint(8) unsigned NOT NULL DEFAULT '0',
   `cat_id` smallint(5) unsigned NOT NULL DEFAULT '0'
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
+--
+-- 表的关联 `ecs_goods_cat`:
+--
+
+--
+-- 插入之前先把表清空（truncate） `ecs_goods_cat`
+--
+
+TRUNCATE TABLE `ecs_goods_cat`;
 --
 -- 转存表中的数据 `ecs_goods_cat`
 --
@@ -2101,7 +2664,11 @@ INSERT INTO `ecs_goods_cat` (`goods_id`, `cat_id`) VALUES
 --
 -- 表的结构 `ecs_goods_gallery`
 --
+-- 创建时间： 2016-03-24 08:01:48
+-- 最后更新： 2016-03-24 08:01:48
+--
 
+DROP TABLE IF EXISTS `ecs_goods_gallery`;
 CREATE TABLE IF NOT EXISTS `ecs_goods_gallery` (
   `img_id` mediumint(8) unsigned NOT NULL,
   `goods_id` mediumint(8) unsigned NOT NULL DEFAULT '0',
@@ -2111,6 +2678,15 @@ CREATE TABLE IF NOT EXISTS `ecs_goods_gallery` (
   `img_original` varchar(255) NOT NULL DEFAULT ''
 ) ENGINE=MyISAM AUTO_INCREMENT=44 DEFAULT CHARSET=utf8;
 
+--
+-- 表的关联 `ecs_goods_gallery`:
+--
+
+--
+-- 插入之前先把表清空（truncate） `ecs_goods_gallery`
+--
+
+TRUNCATE TABLE `ecs_goods_gallery`;
 --
 -- 转存表中的数据 `ecs_goods_gallery`
 --
@@ -2164,7 +2740,11 @@ INSERT INTO `ecs_goods_gallery` (`img_id`, `goods_id`, `img_url`, `img_desc`, `t
 --
 -- 表的结构 `ecs_goods_type`
 --
+-- 创建时间： 2016-03-24 08:01:48
+-- 最后更新： 2016-03-24 08:01:52
+--
 
+DROP TABLE IF EXISTS `ecs_goods_type`;
 CREATE TABLE IF NOT EXISTS `ecs_goods_type` (
   `cat_id` smallint(5) unsigned NOT NULL,
   `cat_name` varchar(60) NOT NULL DEFAULT '',
@@ -2172,6 +2752,15 @@ CREATE TABLE IF NOT EXISTS `ecs_goods_type` (
   `attr_group` varchar(255) NOT NULL
 ) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 
+--
+-- 表的关联 `ecs_goods_type`:
+--
+
+--
+-- 插入之前先把表清空（truncate） `ecs_goods_type`
+--
+
+TRUNCATE TABLE `ecs_goods_type`;
 --
 -- 转存表中的数据 `ecs_goods_type`
 --
@@ -2192,7 +2781,11 @@ INSERT INTO `ecs_goods_type` (`cat_id`, `cat_name`, `enabled`, `attr_group`) VAL
 --
 -- 表的结构 `ecs_group_goods`
 --
+-- 创建时间： 2016-03-24 08:01:48
+-- 最后更新： 2016-03-24 08:01:52
+--
 
+DROP TABLE IF EXISTS `ecs_group_goods`;
 CREATE TABLE IF NOT EXISTS `ecs_group_goods` (
   `parent_id` mediumint(8) unsigned NOT NULL DEFAULT '0',
   `goods_id` mediumint(8) unsigned NOT NULL DEFAULT '0',
@@ -2200,6 +2793,15 @@ CREATE TABLE IF NOT EXISTS `ecs_group_goods` (
   `admin_id` tinyint(3) unsigned NOT NULL DEFAULT '0'
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
+--
+-- 表的关联 `ecs_group_goods`:
+--
+
+--
+-- 插入之前先把表清空（truncate） `ecs_group_goods`
+--
+
+TRUNCATE TABLE `ecs_group_goods`;
 --
 -- 转存表中的数据 `ecs_group_goods`
 --
@@ -2217,7 +2819,11 @@ INSERT INTO `ecs_group_goods` (`parent_id`, `goods_id`, `goods_price`, `admin_id
 --
 -- 表的结构 `ecs_keywords`
 --
+-- 创建时间： 2016-03-24 08:01:48
+-- 最后更新： 2016-03-24 08:01:52
+--
 
+DROP TABLE IF EXISTS `ecs_keywords`;
 CREATE TABLE IF NOT EXISTS `ecs_keywords` (
   `date` date NOT NULL DEFAULT '0000-00-00',
   `searchengine` varchar(20) NOT NULL DEFAULT '',
@@ -2225,6 +2831,15 @@ CREATE TABLE IF NOT EXISTS `ecs_keywords` (
   `count` mediumint(8) unsigned NOT NULL DEFAULT '0'
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
+--
+-- 表的关联 `ecs_keywords`:
+--
+
+--
+-- 插入之前先把表清空（truncate） `ecs_keywords`
+--
+
+TRUNCATE TABLE `ecs_keywords`;
 --
 -- 转存表中的数据 `ecs_keywords`
 --
@@ -2249,7 +2864,11 @@ INSERT INTO `ecs_keywords` (`date`, `searchengine`, `keyword`, `count`) VALUES
 --
 -- 表的结构 `ecs_link_goods`
 --
+-- 创建时间： 2016-03-24 08:01:48
+-- 最后更新： 2016-03-24 08:01:52
+--
 
+DROP TABLE IF EXISTS `ecs_link_goods`;
 CREATE TABLE IF NOT EXISTS `ecs_link_goods` (
   `goods_id` mediumint(8) unsigned NOT NULL DEFAULT '0',
   `link_goods_id` mediumint(8) unsigned NOT NULL DEFAULT '0',
@@ -2257,6 +2876,15 @@ CREATE TABLE IF NOT EXISTS `ecs_link_goods` (
   `admin_id` tinyint(3) unsigned NOT NULL DEFAULT '0'
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
+--
+-- 表的关联 `ecs_link_goods`:
+--
+
+--
+-- 插入之前先把表清空（truncate） `ecs_link_goods`
+--
+
+TRUNCATE TABLE `ecs_link_goods`;
 --
 -- 转存表中的数据 `ecs_link_goods`
 --
@@ -2278,7 +2906,11 @@ INSERT INTO `ecs_link_goods` (`goods_id`, `link_goods_id`, `is_double`, `admin_i
 --
 -- 表的结构 `ecs_mail_templates`
 --
+-- 创建时间： 2016-03-24 08:01:48
+-- 最后更新： 2016-03-24 08:01:48
+--
 
+DROP TABLE IF EXISTS `ecs_mail_templates`;
 CREATE TABLE IF NOT EXISTS `ecs_mail_templates` (
   `template_id` tinyint(1) unsigned NOT NULL,
   `template_code` varchar(30) NOT NULL DEFAULT '',
@@ -2290,6 +2922,15 @@ CREATE TABLE IF NOT EXISTS `ecs_mail_templates` (
   `type` varchar(10) NOT NULL
 ) ENGINE=MyISAM AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
 
+--
+-- 表的关联 `ecs_mail_templates`:
+--
+
+--
+-- 插入之前先把表清空（truncate） `ecs_mail_templates`
+--
+
+TRUNCATE TABLE `ecs_mail_templates`;
 --
 -- 转存表中的数据 `ecs_mail_templates`
 --
@@ -2315,7 +2956,11 @@ INSERT INTO `ecs_mail_templates` (`template_id`, `template_code`, `is_html`, `te
 --
 -- 表的结构 `ecs_member_price`
 --
+-- 创建时间： 2016-03-24 08:01:48
+-- 最后更新： 2016-03-24 08:01:52
+--
 
+DROP TABLE IF EXISTS `ecs_member_price`;
 CREATE TABLE IF NOT EXISTS `ecs_member_price` (
   `price_id` mediumint(8) unsigned NOT NULL,
   `goods_id` mediumint(8) unsigned NOT NULL DEFAULT '0',
@@ -2323,6 +2968,15 @@ CREATE TABLE IF NOT EXISTS `ecs_member_price` (
   `user_price` decimal(10,2) NOT NULL DEFAULT '0.00'
 ) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
+--
+-- 表的关联 `ecs_member_price`:
+--
+
+--
+-- 插入之前先把表清空（truncate） `ecs_member_price`
+--
+
+TRUNCATE TABLE `ecs_member_price`;
 --
 -- 转存表中的数据 `ecs_member_price`
 --
@@ -2338,7 +2992,11 @@ INSERT INTO `ecs_member_price` (`price_id`, `goods_id`, `user_rank`, `user_price
 --
 -- 表的结构 `ecs_nav`
 --
+-- 创建时间： 2016-03-24 08:01:50
+-- 最后更新： 2016-03-24 08:01:50
+--
 
+DROP TABLE IF EXISTS `ecs_nav`;
 CREATE TABLE IF NOT EXISTS `ecs_nav` (
   `id` mediumint(8) NOT NULL,
   `ctype` varchar(10) DEFAULT NULL,
@@ -2351,6 +3009,15 @@ CREATE TABLE IF NOT EXISTS `ecs_nav` (
   `type` varchar(10) NOT NULL
 ) ENGINE=MyISAM AUTO_INCREMENT=28 DEFAULT CHARSET=utf8;
 
+--
+-- 表的关联 `ecs_nav`:
+--
+
+--
+-- 插入之前先把表清空（truncate） `ecs_nav`
+--
+
+TRUNCATE TABLE `ecs_nav`;
 --
 -- 转存表中的数据 `ecs_nav`
 --
@@ -2383,7 +3050,11 @@ INSERT INTO `ecs_nav` (`id`, `ctype`, `cid`, `name`, `ifshow`, `vieworder`, `ope
 --
 -- 表的结构 `ecs_order_action`
 --
+-- 创建时间： 2016-03-24 08:01:48
+-- 最后更新： 2016-03-24 08:01:48
+--
 
+DROP TABLE IF EXISTS `ecs_order_action`;
 CREATE TABLE IF NOT EXISTS `ecs_order_action` (
   `action_id` mediumint(8) unsigned NOT NULL,
   `order_id` mediumint(8) unsigned NOT NULL DEFAULT '0',
@@ -2396,6 +3067,15 @@ CREATE TABLE IF NOT EXISTS `ecs_order_action` (
   `log_time` int(11) unsigned NOT NULL DEFAULT '0'
 ) ENGINE=MyISAM AUTO_INCREMENT=28 DEFAULT CHARSET=utf8;
 
+--
+-- 表的关联 `ecs_order_action`:
+--
+
+--
+-- 插入之前先把表清空（truncate） `ecs_order_action`
+--
+
+TRUNCATE TABLE `ecs_order_action`;
 --
 -- 转存表中的数据 `ecs_order_action`
 --
@@ -2434,7 +3114,11 @@ INSERT INTO `ecs_order_action` (`action_id`, `order_id`, `action_user`, `order_s
 --
 -- 表的结构 `ecs_order_goods`
 --
+-- 创建时间： 2016-03-24 08:01:48
+-- 最后更新： 2016-03-24 08:01:48
+--
 
+DROP TABLE IF EXISTS `ecs_order_goods`;
 CREATE TABLE IF NOT EXISTS `ecs_order_goods` (
   `rec_id` mediumint(8) unsigned NOT NULL,
   `order_id` mediumint(8) unsigned NOT NULL DEFAULT '0',
@@ -2454,6 +3138,15 @@ CREATE TABLE IF NOT EXISTS `ecs_order_goods` (
   `goods_attr_id` varchar(255) NOT NULL DEFAULT ''
 ) ENGINE=MyISAM AUTO_INCREMENT=32 DEFAULT CHARSET=utf8;
 
+--
+-- 表的关联 `ecs_order_goods`:
+--
+
+--
+-- 插入之前先把表清空（truncate） `ecs_order_goods`
+--
+
+TRUNCATE TABLE `ecs_order_goods`;
 --
 -- 转存表中的数据 `ecs_order_goods`
 --
@@ -2496,7 +3189,11 @@ INSERT INTO `ecs_order_goods` (`rec_id`, `order_id`, `goods_id`, `goods_name`, `
 --
 -- 表的结构 `ecs_order_info`
 --
+-- 创建时间： 2016-03-24 08:03:37
+-- 最后更新： 2016-03-24 08:03:37
+--
 
+DROP TABLE IF EXISTS `ecs_order_info`;
 CREATE TABLE IF NOT EXISTS `ecs_order_info` (
   `order_id` mediumint(8) unsigned NOT NULL,
   `order_sn` varchar(20) NOT NULL DEFAULT '',
@@ -2565,6 +3262,15 @@ CREATE TABLE IF NOT EXISTS `ecs_order_info` (
 ) ENGINE=MyISAM AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;
 
 --
+-- 表的关联 `ecs_order_info`:
+--
+
+--
+-- 插入之前先把表清空（truncate） `ecs_order_info`
+--
+
+TRUNCATE TABLE `ecs_order_info`;
+--
 -- 转存表中的数据 `ecs_order_info`
 --
 
@@ -2594,7 +3300,11 @@ INSERT INTO `ecs_order_info` (`order_id`, `order_sn`, `user_id`, `order_status`,
 --
 -- 表的结构 `ecs_pack`
 --
+-- 创建时间： 2016-03-24 08:01:48
+-- 最后更新： 2016-03-24 08:01:52
+--
 
+DROP TABLE IF EXISTS `ecs_pack`;
 CREATE TABLE IF NOT EXISTS `ecs_pack` (
   `pack_id` tinyint(3) unsigned NOT NULL,
   `pack_name` varchar(120) NOT NULL DEFAULT '',
@@ -2604,6 +3314,15 @@ CREATE TABLE IF NOT EXISTS `ecs_pack` (
   `pack_desc` varchar(255) NOT NULL DEFAULT ''
 ) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
+--
+-- 表的关联 `ecs_pack`:
+--
+
+--
+-- 插入之前先把表清空（truncate） `ecs_pack`
+--
+
+TRUNCATE TABLE `ecs_pack`;
 --
 -- 转存表中的数据 `ecs_pack`
 --
@@ -2616,7 +3335,11 @@ INSERT INTO `ecs_pack` (`pack_id`, `pack_name`, `pack_img`, `pack_fee`, `free_mo
 --
 -- 表的结构 `ecs_package_goods`
 --
+-- 创建时间： 2016-03-24 08:01:50
+-- 最后更新： 2016-03-24 08:01:52
+--
 
+DROP TABLE IF EXISTS `ecs_package_goods`;
 CREATE TABLE IF NOT EXISTS `ecs_package_goods` (
   `package_id` mediumint(8) unsigned NOT NULL DEFAULT '0',
   `goods_id` mediumint(8) unsigned NOT NULL DEFAULT '0',
@@ -2625,6 +3348,15 @@ CREATE TABLE IF NOT EXISTS `ecs_package_goods` (
   `admin_id` tinyint(3) unsigned NOT NULL DEFAULT '0'
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
+--
+-- 表的关联 `ecs_package_goods`:
+--
+
+--
+-- 插入之前先把表清空（truncate） `ecs_package_goods`
+--
+
+TRUNCATE TABLE `ecs_package_goods`;
 --
 -- 转存表中的数据 `ecs_package_goods`
 --
@@ -2642,7 +3374,11 @@ INSERT INTO `ecs_package_goods` (`package_id`, `goods_id`, `product_id`, `goods_
 --
 -- 表的结构 `ecs_payment`
 --
+-- 创建时间： 2016-03-24 08:01:48
+-- 最后更新： 2016-03-24 08:01:52
+--
 
+DROP TABLE IF EXISTS `ecs_payment`;
 CREATE TABLE IF NOT EXISTS `ecs_payment` (
   `pay_id` tinyint(3) unsigned NOT NULL,
   `pay_code` varchar(20) NOT NULL DEFAULT '',
@@ -2657,6 +3393,15 @@ CREATE TABLE IF NOT EXISTS `ecs_payment` (
 ) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 --
+-- 表的关联 `ecs_payment`:
+--
+
+--
+-- 插入之前先把表清空（truncate） `ecs_payment`
+--
+
+TRUNCATE TABLE `ecs_payment`;
+--
 -- 转存表中的数据 `ecs_payment`
 --
 
@@ -2670,7 +3415,11 @@ INSERT INTO `ecs_payment` (`pay_id`, `pay_code`, `pay_name`, `pay_fee`, `pay_des
 --
 -- 表的结构 `ecs_pay_log`
 --
+-- 创建时间： 2016-03-24 08:01:49
+-- 最后更新： 2016-03-24 08:01:52
+--
 
+DROP TABLE IF EXISTS `ecs_pay_log`;
 CREATE TABLE IF NOT EXISTS `ecs_pay_log` (
   `log_id` int(10) unsigned NOT NULL,
   `order_id` mediumint(8) unsigned NOT NULL DEFAULT '0',
@@ -2679,6 +3428,15 @@ CREATE TABLE IF NOT EXISTS `ecs_pay_log` (
   `is_paid` tinyint(1) unsigned NOT NULL DEFAULT '0'
 ) ENGINE=MyISAM AUTO_INCREMENT=19 DEFAULT CHARSET=utf8;
 
+--
+-- 表的关联 `ecs_pay_log`:
+--
+
+--
+-- 插入之前先把表清空（truncate） `ecs_pay_log`
+--
+
+TRUNCATE TABLE `ecs_pay_log`;
 --
 -- 转存表中的数据 `ecs_pay_log`
 --
@@ -2708,7 +3466,11 @@ INSERT INTO `ecs_pay_log` (`log_id`, `order_id`, `order_amount`, `order_type`, `
 --
 -- 表的结构 `ecs_plugins`
 --
+-- 创建时间： 2016-03-24 08:01:48
+-- 最后更新： 2016-03-24 08:01:48
+--
 
+DROP TABLE IF EXISTS `ecs_plugins`;
 CREATE TABLE IF NOT EXISTS `ecs_plugins` (
   `code` varchar(30) NOT NULL DEFAULT '',
   `version` varchar(10) NOT NULL DEFAULT '',
@@ -2717,12 +3479,25 @@ CREATE TABLE IF NOT EXISTS `ecs_plugins` (
   `install_date` int(10) unsigned NOT NULL DEFAULT '0'
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
+--
+-- 表的关联 `ecs_plugins`:
+--
+
+--
+-- 插入之前先把表清空（truncate） `ecs_plugins`
+--
+
+TRUNCATE TABLE `ecs_plugins`;
 -- --------------------------------------------------------
 
 --
 -- 表的结构 `ecs_products`
 --
+-- 创建时间： 2016-03-24 08:01:50
+-- 最后更新： 2016-03-24 08:01:52
+--
 
+DROP TABLE IF EXISTS `ecs_products`;
 CREATE TABLE IF NOT EXISTS `ecs_products` (
   `product_id` mediumint(8) unsigned NOT NULL,
   `goods_id` mediumint(8) unsigned NOT NULL DEFAULT '0',
@@ -2731,6 +3506,15 @@ CREATE TABLE IF NOT EXISTS `ecs_products` (
   `product_number` smallint(5) unsigned DEFAULT '0'
 ) ENGINE=MyISAM AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
 
+--
+-- 表的关联 `ecs_products`:
+--
+
+--
+-- 插入之前先把表清空（truncate） `ecs_products`
+--
+
+TRUNCATE TABLE `ecs_products`;
 --
 -- 转存表中的数据 `ecs_products`
 --
@@ -2756,7 +3540,12 @@ INSERT INTO `ecs_products` (`product_id`, `goods_id`, `goods_attr`, `product_sn`
 --
 -- 表的结构 `ecs_region`
 --
+-- 创建时间： 2016-03-24 08:01:48
+-- 最后更新： 2016-03-24 08:01:48
+-- 最后检查： 2016-03-24 08:01:50
+--
 
+DROP TABLE IF EXISTS `ecs_region`;
 CREATE TABLE IF NOT EXISTS `ecs_region` (
   `region_id` smallint(5) unsigned NOT NULL,
   `parent_id` smallint(5) unsigned NOT NULL DEFAULT '0',
@@ -2765,6 +3554,15 @@ CREATE TABLE IF NOT EXISTS `ecs_region` (
   `agency_id` smallint(5) unsigned NOT NULL DEFAULT '0'
 ) ENGINE=MyISAM AUTO_INCREMENT=3409 DEFAULT CHARSET=utf8;
 
+--
+-- 表的关联 `ecs_region`:
+--
+
+--
+-- 插入之前先把表清空（truncate） `ecs_region`
+--
+
+TRUNCATE TABLE `ecs_region`;
 --
 -- 转存表中的数据 `ecs_region`
 --
@@ -6185,7 +6983,11 @@ INSERT INTO `ecs_region` (`region_id`, `parent_id`, `region_name`, `region_type`
 --
 -- 表的结构 `ecs_reg_extend_info`
 --
+-- 创建时间： 2016-03-24 08:01:48
+-- 最后更新： 2016-03-24 08:01:48
+--
 
+DROP TABLE IF EXISTS `ecs_reg_extend_info`;
 CREATE TABLE IF NOT EXISTS `ecs_reg_extend_info` (
   `Id` int(10) unsigned NOT NULL,
   `user_id` mediumint(8) unsigned NOT NULL,
@@ -6193,12 +6995,25 @@ CREATE TABLE IF NOT EXISTS `ecs_reg_extend_info` (
   `content` text NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
+--
+-- 表的关联 `ecs_reg_extend_info`:
+--
+
+--
+-- 插入之前先把表清空（truncate） `ecs_reg_extend_info`
+--
+
+TRUNCATE TABLE `ecs_reg_extend_info`;
 -- --------------------------------------------------------
 
 --
 -- 表的结构 `ecs_reg_fields`
 --
+-- 创建时间： 2016-03-24 08:01:48
+-- 最后更新： 2016-03-24 08:01:52
+--
 
+DROP TABLE IF EXISTS `ecs_reg_fields`;
 CREATE TABLE IF NOT EXISTS `ecs_reg_fields` (
   `id` tinyint(3) unsigned NOT NULL,
   `reg_field_name` varchar(60) NOT NULL,
@@ -6208,6 +7023,15 @@ CREATE TABLE IF NOT EXISTS `ecs_reg_fields` (
   `is_need` tinyint(1) unsigned NOT NULL DEFAULT '1'
 ) ENGINE=MyISAM AUTO_INCREMENT=100 DEFAULT CHARSET=utf8;
 
+--
+-- 表的关联 `ecs_reg_fields`:
+--
+
+--
+-- 插入之前先把表清空（truncate） `ecs_reg_fields`
+--
+
+TRUNCATE TABLE `ecs_reg_fields`;
 --
 -- 转存表中的数据 `ecs_reg_fields`
 --
@@ -6225,7 +7049,11 @@ INSERT INTO `ecs_reg_fields` (`id`, `reg_field_name`, `dis_order`, `display`, `t
 --
 -- 表的结构 `ecs_role`
 --
+-- 创建时间： 2016-03-24 08:01:50
+-- 最后更新： 2016-03-24 08:01:50
+--
 
+DROP TABLE IF EXISTS `ecs_role`;
 CREATE TABLE IF NOT EXISTS `ecs_role` (
   `role_id` smallint(5) unsigned NOT NULL,
   `role_name` varchar(60) NOT NULL DEFAULT '',
@@ -6233,24 +7061,49 @@ CREATE TABLE IF NOT EXISTS `ecs_role` (
   `role_describe` text
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
+--
+-- 表的关联 `ecs_role`:
+--
+
+--
+-- 插入之前先把表清空（truncate） `ecs_role`
+--
+
+TRUNCATE TABLE `ecs_role`;
 -- --------------------------------------------------------
 
 --
 -- 表的结构 `ecs_searchengine`
 --
+-- 创建时间： 2016-03-24 08:01:48
+-- 最后更新： 2016-03-24 08:01:48
+--
 
+DROP TABLE IF EXISTS `ecs_searchengine`;
 CREATE TABLE IF NOT EXISTS `ecs_searchengine` (
   `date` date NOT NULL DEFAULT '0000-00-00',
   `searchengine` varchar(20) NOT NULL DEFAULT '',
   `count` mediumint(8) unsigned NOT NULL DEFAULT '0'
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
+--
+-- 表的关联 `ecs_searchengine`:
+--
+
+--
+-- 插入之前先把表清空（truncate） `ecs_searchengine`
+--
+
+TRUNCATE TABLE `ecs_searchengine`;
 -- --------------------------------------------------------
 
 --
 -- 表的结构 `ecs_sessions`
 --
+-- 创建时间： 2016-03-24 08:01:48
+--
 
+DROP TABLE IF EXISTS `ecs_sessions`;
 CREATE TABLE IF NOT EXISTS `ecs_sessions` (
   `sesskey` char(32) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL DEFAULT '',
   `expiry` int(10) unsigned NOT NULL DEFAULT '0',
@@ -6265,33 +7118,58 @@ CREATE TABLE IF NOT EXISTS `ecs_sessions` (
 ) ENGINE=MEMORY DEFAULT CHARSET=utf8;
 
 --
+-- 表的关联 `ecs_sessions`:
+--
+
+--
+-- 插入之前先把表清空（truncate） `ecs_sessions`
+--
+
+TRUNCATE TABLE `ecs_sessions`;
+--
 -- 转存表中的数据 `ecs_sessions`
 --
 
 INSERT INTO `ecs_sessions` (`sesskey`, `expiry`, `userid`, `adminid`, `ip`, `user_name`, `user_rank`, `discount`, `email`, `data`) VALUES
-('5e91abd187d4f86388134565bac20f5c', 1458799323, 0, 0, '127.0.0.1', '0', 0, '1.00', '0', 'a:3:{s:7:"from_ad";i:0;s:7:"referer";s:6:"本站";s:10:"login_fail";i:0;}'),
-('033fc2fbba2f262489d81f6f137e4ce4', 1458799889, 0, 1, '127.0.0.1', '0', 0, '0.00', '0', 'a:5:{s:12:"captcha_word";s:16:"NzkyNTNkNTcyZA==";s:10:"admin_name";s:5:"admin";s:11:"action_list";s:3:"all";s:10:"last_check";i:1458771089;s:12:"suppliers_id";s:1:"0";}'),
-('c87d07aeddae2ae631feb31b6fc7bb8c', 1458800254, 0, 0, '127.0.0.1', '0', 0, '1.00', '0', 'a:0:{}'),
-('626fd3b3e4c66843c116fcad5af98820', 1458800242, 0, 0, '127.0.0.1', '0', 0, '1.00', '0', 'a:0:{}');
+('5e91abd187d4f86388134565bac20f5c', 1458806518, 0, 0, '127.0.0.1', '0', 0, '1.00', '0', 'a:3:{s:7:"from_ad";i:0;s:7:"referer";s:6:"本站";s:10:"login_fail";i:0;}'),
+('033fc2fbba2f262489d81f6f137e4ce4', 1458806545, 0, 1, '127.0.0.1', '0', 0, '0.00', '0', 'a:5:{s:12:"captcha_word";s:16:"MjAxZjI2YTgxOA==";s:10:"admin_name";s:5:"admin";s:11:"action_list";s:3:"all";s:10:"last_check";s:1:"0";s:12:"suppliers_id";s:1:"0";}'),
+('8158b18d750666caa871c76cb7650717', 1458806725, 0, 0, '127.0.0.1', '0', 0, '1.00', '0', 'a:2:{s:9:"flow_type";i:0;s:9:"last_time";i:1458777925;}');
 
 -- --------------------------------------------------------
 
 --
 -- 表的结构 `ecs_sessions_data`
 --
+-- 创建时间： 2016-03-24 08:01:48
+-- 最后更新： 2016-03-24 08:01:48
+--
 
+DROP TABLE IF EXISTS `ecs_sessions_data`;
 CREATE TABLE IF NOT EXISTS `ecs_sessions_data` (
   `sesskey` varchar(32) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL DEFAULT '',
   `expiry` int(10) unsigned NOT NULL DEFAULT '0',
   `data` longtext NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
+--
+-- 表的关联 `ecs_sessions_data`:
+--
+
+--
+-- 插入之前先把表清空（truncate） `ecs_sessions_data`
+--
+
+TRUNCATE TABLE `ecs_sessions_data`;
 -- --------------------------------------------------------
 
 --
 -- 表的结构 `ecs_shipping`
 --
+-- 创建时间： 2016-03-24 08:01:49
+-- 最后更新： 2016-03-24 08:01:52
+--
 
+DROP TABLE IF EXISTS `ecs_shipping`;
 CREATE TABLE IF NOT EXISTS `ecs_shipping` (
   `shipping_id` tinyint(3) unsigned NOT NULL,
   `shipping_code` varchar(20) NOT NULL DEFAULT '',
@@ -6307,6 +7185,15 @@ CREATE TABLE IF NOT EXISTS `ecs_shipping` (
   `shipping_order` tinyint(3) unsigned NOT NULL DEFAULT '0'
 ) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
+--
+-- 表的关联 `ecs_shipping`:
+--
+
+--
+-- 插入之前先把表清空（truncate） `ecs_shipping`
+--
+
+TRUNCATE TABLE `ecs_shipping`;
 --
 -- 转存表中的数据 `ecs_shipping`
 --
@@ -6325,7 +7212,11 @@ INSERT INTO `ecs_shipping` (`shipping_id`, `shipping_code`, `shipping_name`, `sh
 --
 -- 表的结构 `ecs_shipping_area`
 --
+-- 创建时间： 2016-03-24 08:01:49
+-- 最后更新： 2016-03-24 08:01:52
+--
 
+DROP TABLE IF EXISTS `ecs_shipping_area`;
 CREATE TABLE IF NOT EXISTS `ecs_shipping_area` (
   `shipping_area_id` smallint(5) unsigned NOT NULL,
   `shipping_area_name` varchar(150) NOT NULL DEFAULT '',
@@ -6333,6 +7224,15 @@ CREATE TABLE IF NOT EXISTS `ecs_shipping_area` (
   `configure` text NOT NULL
 ) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
+--
+-- 表的关联 `ecs_shipping_area`:
+--
+
+--
+-- 插入之前先把表清空（truncate） `ecs_shipping_area`
+--
+
+TRUNCATE TABLE `ecs_shipping_area`;
 --
 -- 转存表中的数据 `ecs_shipping_area`
 --
@@ -6348,7 +7248,12 @@ INSERT INTO `ecs_shipping_area` (`shipping_area_id`, `shipping_area_name`, `ship
 --
 -- 表的结构 `ecs_shop_config`
 --
+-- 创建时间： 2016-03-24 08:01:49
+-- 最后更新： 2016-03-24 08:01:49
+-- 最后检查： 2016-03-24 08:01:50
+--
 
+DROP TABLE IF EXISTS `ecs_shop_config`;
 CREATE TABLE IF NOT EXISTS `ecs_shop_config` (
   `id` smallint(5) unsigned NOT NULL,
   `parent_id` smallint(5) unsigned NOT NULL DEFAULT '0',
@@ -6360,6 +7265,15 @@ CREATE TABLE IF NOT EXISTS `ecs_shop_config` (
   `sort_order` tinyint(3) unsigned NOT NULL DEFAULT '1'
 ) ENGINE=MyISAM AUTO_INCREMENT=904 DEFAULT CHARSET=utf8;
 
+--
+-- 表的关联 `ecs_shop_config`:
+--
+
+--
+-- 插入之前先把表清空（truncate） `ecs_shop_config`
+--
+
+TRUNCATE TABLE `ecs_shop_config`;
 --
 -- 转存表中的数据 `ecs_shop_config`
 --
@@ -6508,7 +7422,7 @@ INSERT INTO `ecs_shop_config` (`id`, `parent_id`, `code`, `type`, `store_range`,
 (602, 6, 'integrate_config', 'hidden', '', '', '', 1),
 (603, 6, 'hash_code', 'hidden', '', '', '31693422540744c0a6b6da635b7a5a93', 1),
 (604, 6, 'template', 'hidden', '', '', 'default', 1),
-(605, 6, 'install_date', 'hidden', '', '', '1458799308', 1),
+(605, 6, 'install_date', 'hidden', '', '', '1458806511', 1),
 (606, 6, 'ecs_version', 'hidden', '', '', 'v2.7.3', 1),
 (607, 6, 'sms_user_name', 'hidden', '', '', '', 1),
 (608, 6, 'sms_password', 'hidden', '', '', '', 1),
@@ -6546,7 +7460,11 @@ INSERT INTO `ecs_shop_config` (`id`, `parent_id`, `code`, `type`, `store_range`,
 --
 -- 表的结构 `ecs_snatch_log`
 --
+-- 创建时间： 2016-03-24 08:01:49
+-- 最后更新： 2016-03-24 08:01:52
+--
 
+DROP TABLE IF EXISTS `ecs_snatch_log`;
 CREATE TABLE IF NOT EXISTS `ecs_snatch_log` (
   `log_id` mediumint(8) unsigned NOT NULL,
   `snatch_id` tinyint(3) unsigned NOT NULL DEFAULT '0',
@@ -6555,6 +7473,15 @@ CREATE TABLE IF NOT EXISTS `ecs_snatch_log` (
   `bid_time` int(10) unsigned NOT NULL DEFAULT '0'
 ) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
+--
+-- 表的关联 `ecs_snatch_log`:
+--
+
+--
+-- 插入之前先把表清空（truncate） `ecs_snatch_log`
+--
+
+TRUNCATE TABLE `ecs_snatch_log`;
 --
 -- 转存表中的数据 `ecs_snatch_log`
 --
@@ -6568,7 +7495,11 @@ INSERT INTO `ecs_snatch_log` (`log_id`, `snatch_id`, `user_id`, `bid_price`, `bi
 --
 -- 表的结构 `ecs_stats`
 --
+-- 创建时间： 2016-03-24 08:01:49
+-- 最后更新： 2016-03-24 08:01:49
+--
 
+DROP TABLE IF EXISTS `ecs_stats`;
 CREATE TABLE IF NOT EXISTS `ecs_stats` (
   `access_time` int(10) unsigned NOT NULL DEFAULT '0',
   `ip_address` varchar(15) NOT NULL DEFAULT '',
@@ -6582,6 +7513,15 @@ CREATE TABLE IF NOT EXISTS `ecs_stats` (
   `access_url` varchar(255) NOT NULL DEFAULT ''
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
+--
+-- 表的关联 `ecs_stats`:
+--
+
+--
+-- 插入之前先把表清空（truncate） `ecs_stats`
+--
+
+TRUNCATE TABLE `ecs_stats`;
 --
 -- 转存表中的数据 `ecs_stats`
 --
@@ -6635,14 +7575,18 @@ INSERT INTO `ecs_stats` (`access_time`, `ip_address`, `visit_times`, `browser`, 
 (1245217308, '0.0.0.0', 498, 'FireFox 3.0.11', 'Windows XP', 'zh-cn', 'IANA', 'http://localhost:8080', '/', '/shouji/index.php'),
 (1245219380, '0.0.0.0', 499, 'FireFox 3.0.11', 'Windows XP', 'zh-cn', 'IANA', 'http://localhost:8080', '/shouji/admin/index.php?act=top', '/shouji/index.php'),
 (1245222219, '0.0.0.0', 500, 'FireFox 3.0.11', 'Windows XP', 'zh-cn', 'IANA', 'http://localhost:8080', '/shouji/admin/goods.php?act=list', '/shouji/goods.php'),
-(1458770512, '127.0.0.1', 1, 'Safari 537.36', 'Windows NT', 'zh-CN,zh', 'LAN', 'http://dev.ecshop.com', '/install/index.php?lang=zh_cn&step=done', '/index.php');
+(1458777718, '127.0.0.1', 2, 'Safari 537.36', 'Windows NT', 'zh-CN,zh', 'LAN', 'http://dev.ecshop.com', '/install/index.php?lang=zh_cn&step=done', '/index.php');
 
 -- --------------------------------------------------------
 
 --
 -- 表的结构 `ecs_suppliers`
 --
+-- 创建时间： 2016-03-24 08:01:50
+-- 最后更新： 2016-03-24 08:01:52
+--
 
+DROP TABLE IF EXISTS `ecs_suppliers`;
 CREATE TABLE IF NOT EXISTS `ecs_suppliers` (
   `suppliers_id` smallint(5) unsigned NOT NULL,
   `suppliers_name` varchar(255) DEFAULT NULL,
@@ -6650,6 +7594,15 @@ CREATE TABLE IF NOT EXISTS `ecs_suppliers` (
   `is_check` tinyint(1) unsigned NOT NULL DEFAULT '1'
 ) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
+--
+-- 表的关联 `ecs_suppliers`:
+--
+
+--
+-- 插入之前先把表清空（truncate） `ecs_suppliers`
+--
+
+TRUNCATE TABLE `ecs_suppliers`;
 --
 -- 转存表中的数据 `ecs_suppliers`
 --
@@ -6663,7 +7616,11 @@ INSERT INTO `ecs_suppliers` (`suppliers_id`, `suppliers_name`, `suppliers_desc`,
 --
 -- 表的结构 `ecs_tag`
 --
+-- 创建时间： 2016-03-24 08:01:49
+-- 最后更新： 2016-03-24 08:01:52
+--
 
+DROP TABLE IF EXISTS `ecs_tag`;
 CREATE TABLE IF NOT EXISTS `ecs_tag` (
   `tag_id` mediumint(8) NOT NULL,
   `user_id` mediumint(8) unsigned NOT NULL DEFAULT '0',
@@ -6671,6 +7628,15 @@ CREATE TABLE IF NOT EXISTS `ecs_tag` (
   `tag_words` varchar(255) NOT NULL DEFAULT ''
 ) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
+--
+-- 表的关联 `ecs_tag`:
+--
+
+--
+-- 插入之前先把表清空（truncate） `ecs_tag`
+--
+
+TRUNCATE TABLE `ecs_tag`;
 --
 -- 转存表中的数据 `ecs_tag`
 --
@@ -6689,7 +7655,11 @@ INSERT INTO `ecs_tag` (`tag_id`, `user_id`, `goods_id`, `tag_words`) VALUES
 --
 -- 表的结构 `ecs_template`
 --
+-- 创建时间： 2016-03-24 08:01:49
+-- 最后更新： 2016-03-24 08:01:49
+--
 
+DROP TABLE IF EXISTS `ecs_template`;
 CREATE TABLE IF NOT EXISTS `ecs_template` (
   `filename` varchar(30) NOT NULL DEFAULT '',
   `region` varchar(40) NOT NULL DEFAULT '',
@@ -6702,6 +7672,15 @@ CREATE TABLE IF NOT EXISTS `ecs_template` (
   `remarks` varchar(30) NOT NULL DEFAULT ''
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
+--
+-- 表的关联 `ecs_template`:
+--
+
+--
+-- 插入之前先把表清空（truncate） `ecs_template`
+--
+
+TRUNCATE TABLE `ecs_template`;
 --
 -- 转存表中的数据 `ecs_template`
 --
@@ -6735,7 +7714,11 @@ INSERT INTO `ecs_template` (`filename`, `region`, `library`, `sort_order`, `id`,
 --
 -- 表的结构 `ecs_topic`
 --
+-- 创建时间： 2016-03-24 08:01:49
+-- 最后更新： 2016-03-24 08:01:52
+--
 
+DROP TABLE IF EXISTS `ecs_topic`;
 CREATE TABLE IF NOT EXISTS `ecs_topic` (
   `topic_id` int(10) unsigned NOT NULL,
   `title` varchar(255) NOT NULL DEFAULT '''''',
@@ -6754,6 +7737,15 @@ CREATE TABLE IF NOT EXISTS `ecs_topic` (
 ) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 --
+-- 表的关联 `ecs_topic`:
+--
+
+--
+-- 插入之前先把表清空（truncate） `ecs_topic`
+--
+
+TRUNCATE TABLE `ecs_topic`;
+--
 -- 转存表中的数据 `ecs_topic`
 --
 
@@ -6765,12 +7757,25 @@ INSERT INTO `ecs_topic` (`topic_id`, `title`, `intro`, `start_time`, `end_time`,
 --
 -- 表的结构 `ecs_touch_activity`
 --
+-- 创建时间： 2016-03-24 08:03:37
+-- 最后更新： 2016-03-24 08:03:45
+--
 
+DROP TABLE IF EXISTS `ecs_touch_activity`;
 CREATE TABLE IF NOT EXISTS `ecs_touch_activity` (
   `act_id` int(10) NOT NULL,
   `act_banner` varchar(255) DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
+--
+-- 表的关联 `ecs_touch_activity`:
+--
+
+--
+-- 插入之前先把表清空（truncate） `ecs_touch_activity`
+--
+
+TRUNCATE TABLE `ecs_touch_activity`;
 --
 -- 转存表中的数据 `ecs_touch_activity`
 --
@@ -6787,7 +7792,11 @@ INSERT INTO `ecs_touch_activity` (`act_id`, `act_banner`) VALUES
 --
 -- 表的结构 `ecs_touch_ad`
 --
+-- 创建时间： 2016-03-24 08:03:37
+-- 最后更新： 2016-03-24 08:03:45
+--
 
+DROP TABLE IF EXISTS `ecs_touch_ad`;
 CREATE TABLE IF NOT EXISTS `ecs_touch_ad` (
   `ad_id` smallint(5) unsigned NOT NULL,
   `position_id` smallint(5) unsigned NOT NULL DEFAULT '0',
@@ -6805,6 +7814,15 @@ CREATE TABLE IF NOT EXISTS `ecs_touch_ad` (
 ) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 --
+-- 表的关联 `ecs_touch_ad`:
+--
+
+--
+-- 插入之前先把表清空（truncate） `ecs_touch_ad`
+--
+
+TRUNCATE TABLE `ecs_touch_ad`;
+--
 -- 转存表中的数据 `ecs_touch_ad`
 --
 
@@ -6818,19 +7836,36 @@ INSERT INTO `ecs_touch_ad` (`ad_id`, `position_id`, `media_type`, `ad_name`, `ad
 --
 -- 表的结构 `ecs_touch_adsense`
 --
+-- 创建时间： 2016-03-24 08:03:37
+-- 最后更新： 2016-03-24 08:03:37
+--
 
+DROP TABLE IF EXISTS `ecs_touch_adsense`;
 CREATE TABLE IF NOT EXISTS `ecs_touch_adsense` (
   `from_ad` smallint(5) NOT NULL DEFAULT '0',
   `referer` varchar(255) NOT NULL DEFAULT '',
   `clicks` int(10) unsigned NOT NULL DEFAULT '0'
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
+--
+-- 表的关联 `ecs_touch_adsense`:
+--
+
+--
+-- 插入之前先把表清空（truncate） `ecs_touch_adsense`
+--
+
+TRUNCATE TABLE `ecs_touch_adsense`;
 -- --------------------------------------------------------
 
 --
 -- 表的结构 `ecs_touch_ad_position`
 --
+-- 创建时间： 2016-03-24 08:03:37
+-- 最后更新： 2016-03-24 08:03:40
+--
 
+DROP TABLE IF EXISTS `ecs_touch_ad_position`;
 CREATE TABLE IF NOT EXISTS `ecs_touch_ad_position` (
   `position_id` tinyint(3) unsigned NOT NULL,
   `position_name` varchar(255) NOT NULL DEFAULT '',
@@ -6840,6 +7875,15 @@ CREATE TABLE IF NOT EXISTS `ecs_touch_ad_position` (
   `position_style` text NOT NULL
 ) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
+--
+-- 表的关联 `ecs_touch_ad_position`:
+--
+
+--
+-- 插入之前先把表清空（truncate） `ecs_touch_ad_position`
+--
+
+TRUNCATE TABLE `ecs_touch_ad_position`;
 --
 -- 转存表中的数据 `ecs_touch_ad_position`
 --
@@ -6852,7 +7896,11 @@ INSERT INTO `ecs_touch_ad_position` (`position_id`, `position_name`, `ad_width`,
 --
 -- 表的结构 `ecs_touch_article`
 --
+-- 创建时间： 2016-03-24 08:03:37
+-- 最后更新： 2016-03-24 08:03:40
+--
 
+DROP TABLE IF EXISTS `ecs_touch_article`;
 CREATE TABLE IF NOT EXISTS `ecs_touch_article` (
   `article_id` mediumint(8) unsigned NOT NULL,
   `cat_id` smallint(5) NOT NULL DEFAULT '0',
@@ -6870,18 +7918,31 @@ CREATE TABLE IF NOT EXISTS `ecs_touch_article` (
 ) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 --
+-- 表的关联 `ecs_touch_article`:
+--
+
+--
+-- 插入之前先把表清空（truncate） `ecs_touch_article`
+--
+
+TRUNCATE TABLE `ecs_touch_article`;
+--
 -- 转存表中的数据 `ecs_touch_article`
 --
 
 INSERT INTO `ecs_touch_article` (`article_id`, `cat_id`, `title`, `content`, `author`, `author_email`, `keywords`, `is_open`, `add_time`, `file_url`, `open_type`, `link`, `description`) VALUES
-(6, -1, '用户协议', '', '', '', '', 1, 1458799388, '', 0, '', NULL);
+(6, -1, '用户协议', '', '', '', '', 1, 1458806617, '', 0, '', NULL);
 
 -- --------------------------------------------------------
 
 --
 -- 表的结构 `ecs_touch_article_cat`
 --
+-- 创建时间： 2016-03-24 08:03:37
+-- 最后更新： 2016-03-24 08:03:37
+--
 
+DROP TABLE IF EXISTS `ecs_touch_article_cat`;
 CREATE TABLE IF NOT EXISTS `ecs_touch_article_cat` (
   `cat_id` smallint(5) NOT NULL,
   `cat_name` varchar(255) NOT NULL DEFAULT '',
@@ -6891,71 +7952,149 @@ CREATE TABLE IF NOT EXISTS `ecs_touch_article_cat` (
   `parent_id` smallint(5) unsigned NOT NULL DEFAULT '0'
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
+--
+-- 表的关联 `ecs_touch_article_cat`:
+--
+
+--
+-- 插入之前先把表清空（truncate） `ecs_touch_article_cat`
+--
+
+TRUNCATE TABLE `ecs_touch_article_cat`;
 -- --------------------------------------------------------
 
 --
 -- 表的结构 `ecs_touch_auth`
 --
+-- 创建时间： 2016-03-24 08:03:37
+-- 最后更新： 2016-03-24 08:03:37
+--
 
+DROP TABLE IF EXISTS `ecs_touch_auth`;
 CREATE TABLE IF NOT EXISTS `ecs_touch_auth` (
   `id` tinyint(2) NOT NULL,
   `auth_config` varchar(255) NOT NULL,
   `from` varchar(10) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='登录插件';
 
+--
+-- 表的关联 `ecs_touch_auth`:
+--
+
+--
+-- 插入之前先把表清空（truncate） `ecs_touch_auth`
+--
+
+TRUNCATE TABLE `ecs_touch_auth`;
 -- --------------------------------------------------------
 
 --
 -- 表的结构 `ecs_touch_brand`
 --
+-- 创建时间： 2016-03-24 08:03:37
+-- 最后更新： 2016-03-24 08:03:37
+--
 
+DROP TABLE IF EXISTS `ecs_touch_brand`;
 CREATE TABLE IF NOT EXISTS `ecs_touch_brand` (
   `brand_id` int(8) NOT NULL,
   `brand_banner` varchar(255) NOT NULL COMMENT '广告位',
   `brand_content` text NOT NULL COMMENT '详情'
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
+--
+-- 表的关联 `ecs_touch_brand`:
+--
+
+--
+-- 插入之前先把表清空（truncate） `ecs_touch_brand`
+--
+
+TRUNCATE TABLE `ecs_touch_brand`;
 -- --------------------------------------------------------
 
 --
 -- 表的结构 `ecs_touch_category`
 --
+-- 创建时间： 2016-03-24 08:03:37
+-- 最后更新： 2016-03-24 08:03:37
+--
 
+DROP TABLE IF EXISTS `ecs_touch_category`;
 CREATE TABLE IF NOT EXISTS `ecs_touch_category` (
   `id` int(10) unsigned NOT NULL,
   `cat_id` int(10) unsigned DEFAULT NULL COMMENT '外键',
   `cat_image` varchar(255) DEFAULT NULL COMMENT '分类ICO图标'
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
+--
+-- 表的关联 `ecs_touch_category`:
+--
+
+--
+-- 插入之前先把表清空（truncate） `ecs_touch_category`
+--
+
+TRUNCATE TABLE `ecs_touch_category`;
 -- --------------------------------------------------------
 
 --
 -- 表的结构 `ecs_touch_feedback`
 --
+-- 创建时间： 2016-03-24 08:03:37
+-- 最后更新： 2016-03-24 08:03:37
+--
 
+DROP TABLE IF EXISTS `ecs_touch_feedback`;
 CREATE TABLE IF NOT EXISTS `ecs_touch_feedback` (
   `id` int(10) unsigned NOT NULL,
   `msg_id` mediumint(8) unsigned NOT NULL,
   `msg_read` int(1) unsigned NOT NULL DEFAULT '0'
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
+--
+-- 表的关联 `ecs_touch_feedback`:
+--
+
+--
+-- 插入之前先把表清空（truncate） `ecs_touch_feedback`
+--
+
+TRUNCATE TABLE `ecs_touch_feedback`;
 -- --------------------------------------------------------
 
 --
 -- 表的结构 `ecs_touch_goods`
 --
+-- 创建时间： 2016-03-24 08:03:37
+-- 最后更新： 2016-03-24 08:03:37
+--
 
+DROP TABLE IF EXISTS `ecs_touch_goods`;
 CREATE TABLE IF NOT EXISTS `ecs_touch_goods` (
   `goods_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '外键',
   `sales_volume` int(10) unsigned DEFAULT NULL COMMENT '销量统计'
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
+--
+-- 表的关联 `ecs_touch_goods`:
+--
+
+--
+-- 插入之前先把表清空（truncate） `ecs_touch_goods`
+--
+
+TRUNCATE TABLE `ecs_touch_goods`;
 -- --------------------------------------------------------
 
 --
 -- 表的结构 `ecs_touch_goods_activity`
 --
+-- 创建时间： 2016-03-24 08:03:37
+-- 最后更新： 2016-03-24 08:04:19
+--
 
+DROP TABLE IF EXISTS `ecs_touch_goods_activity`;
 CREATE TABLE IF NOT EXISTS `ecs_touch_goods_activity` (
   `act_id` int(10) DEFAULT NULL,
   `act_banner` varchar(255) DEFAULT NULL,
@@ -6964,6 +8103,15 @@ CREATE TABLE IF NOT EXISTS `ecs_touch_goods_activity` (
   `cur_price` decimal(10,2) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
+--
+-- 表的关联 `ecs_touch_goods_activity`:
+--
+
+--
+-- 插入之前先把表清空（truncate） `ecs_touch_goods_activity`
+--
+
+TRUNCATE TABLE `ecs_touch_goods_activity`;
 --
 -- 转存表中的数据 `ecs_touch_goods_activity`
 --
@@ -6976,7 +8124,11 @@ INSERT INTO `ecs_touch_goods_activity` (`act_id`, `act_banner`, `sales_count`, `
 --
 -- 表的结构 `ecs_touch_nav`
 --
+-- 创建时间： 2016-03-24 08:03:37
+-- 最后更新： 2016-03-24 08:03:40
+--
 
+DROP TABLE IF EXISTS `ecs_touch_nav`;
 CREATE TABLE IF NOT EXISTS `ecs_touch_nav` (
   `id` mediumint(8) NOT NULL,
   `ctype` varchar(10) DEFAULT NULL,
@@ -6990,6 +8142,15 @@ CREATE TABLE IF NOT EXISTS `ecs_touch_nav` (
   `type` varchar(10) NOT NULL
 ) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 
+--
+-- 表的关联 `ecs_touch_nav`:
+--
+
+--
+-- 插入之前先把表清空（truncate） `ecs_touch_nav`
+--
+
+TRUNCATE TABLE `ecs_touch_nav`;
 --
 -- 转存表中的数据 `ecs_touch_nav`
 --
@@ -7009,7 +8170,11 @@ INSERT INTO `ecs_touch_nav` (`id`, `ctype`, `cid`, `name`, `ifshow`, `vieworder`
 --
 -- 表的结构 `ecs_touch_payment`
 --
+-- 创建时间： 2016-03-24 08:03:37
+-- 最后更新： 2016-03-24 08:03:40
+--
 
+DROP TABLE IF EXISTS `ecs_touch_payment`;
 CREATE TABLE IF NOT EXISTS `ecs_touch_payment` (
   `pay_id` tinyint(3) unsigned NOT NULL,
   `pay_code` varchar(20) NOT NULL DEFAULT '',
@@ -7024,6 +8189,15 @@ CREATE TABLE IF NOT EXISTS `ecs_touch_payment` (
 ) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 --
+-- 表的关联 `ecs_touch_payment`:
+--
+
+--
+-- 插入之前先把表清空（truncate） `ecs_touch_payment`
+--
+
+TRUNCATE TABLE `ecs_touch_payment`;
+--
 -- 转存表中的数据 `ecs_touch_payment`
 --
 
@@ -7037,7 +8211,12 @@ INSERT INTO `ecs_touch_payment` (`pay_id`, `pay_code`, `pay_name`, `pay_fee`, `p
 --
 -- 表的结构 `ecs_touch_shop_config`
 --
+-- 创建时间： 2016-03-24 08:03:37
+-- 最后更新： 2016-03-24 08:03:37
+-- 最后检查： 2016-03-24 08:03:37
+--
 
+DROP TABLE IF EXISTS `ecs_touch_shop_config`;
 CREATE TABLE IF NOT EXISTS `ecs_touch_shop_config` (
   `id` smallint(5) unsigned NOT NULL,
   `parent_id` smallint(5) unsigned NOT NULL DEFAULT '0',
@@ -7049,6 +8228,15 @@ CREATE TABLE IF NOT EXISTS `ecs_touch_shop_config` (
   `sort_order` tinyint(3) unsigned NOT NULL DEFAULT '1'
 ) ENGINE=MyISAM AUTO_INCREMENT=909 DEFAULT CHARSET=utf8;
 
+--
+-- 表的关联 `ecs_touch_shop_config`:
+--
+
+--
+-- 插入之前先把表清空（truncate） `ecs_touch_shop_config`
+--
+
+TRUNCATE TABLE `ecs_touch_shop_config`;
 --
 -- 转存表中的数据 `ecs_touch_shop_config`
 --
@@ -7084,7 +8272,7 @@ INSERT INTO `ecs_touch_shop_config` (`id`, `parent_id`, `code`, `type`, `store_r
 (332, 3, 'related_goods_number', 'text', '', '', '4', 1),
 (334, 3, 'article_page_size', 'text', '', '', '10', 1),
 (604, 6, 'template', 'hidden', '', '', 'default', 1),
-(623, 6, 'stylename', 'hidden', '', '', '', 1),
+(623, 6, 'stylename', 'hidden', '', '', 'red', 1),
 (701, 7, 'show_goodssn', 'select', '1,0', '', '1', 1),
 (702, 7, 'show_brand', 'select', '1,0', '', '1', 1),
 (703, 7, 'show_goodsweight', 'select', '1,0', '', '1', 1),
@@ -7095,7 +8283,7 @@ INSERT INTO `ecs_touch_shop_config` (`id`, `parent_id`, `code`, `type`, `store_r
 (801, 8, 'sms_shop_mobile', 'text', '', '', '', 1),
 (802, 8, 'sms_order_placed', 'select', '1,0', '', '0', 1),
 (803, 8, 'sms_order_payed', 'select', '1,0', '', '0', 1),
-(904, 1, 'shop_url', 'text', '', '', 'http://dev.ecmobile.com', 1),
+(904, 1, 'shop_url', 'text', '', '', 'http://dev.ecshop.com', 1),
 (905, 1, 'show_asynclist', 'select', '1,0', '', '0', 1),
 (906, 8, 'sms_ecmoban_user', 'text', '', '', '', 0),
 (907, 8, 'sms_ecmoban_password', 'password', '', '', '', 0),
@@ -7106,7 +8294,11 @@ INSERT INTO `ecs_touch_shop_config` (`id`, `parent_id`, `code`, `type`, `store_r
 --
 -- 表的结构 `ecs_touch_topic`
 --
+-- 创建时间： 2016-03-24 08:03:37
+-- 最后更新： 2016-03-24 08:03:37
+--
 
+DROP TABLE IF EXISTS `ecs_touch_topic`;
 CREATE TABLE IF NOT EXISTS `ecs_touch_topic` (
   `topic_id` int(10) unsigned NOT NULL,
   `title` varchar(255) NOT NULL DEFAULT '',
@@ -7124,23 +8316,49 @@ CREATE TABLE IF NOT EXISTS `ecs_touch_topic` (
   `description` varchar(255) DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
+--
+-- 表的关联 `ecs_touch_topic`:
+--
+
+--
+-- 插入之前先把表清空（truncate） `ecs_touch_topic`
+--
+
+TRUNCATE TABLE `ecs_touch_topic`;
 -- --------------------------------------------------------
 
 --
 -- 表的结构 `ecs_touch_user_info`
 --
+-- 创建时间： 2016-03-24 08:03:37
+-- 最后更新： 2016-03-24 08:03:37
+--
 
+DROP TABLE IF EXISTS `ecs_touch_user_info`;
 CREATE TABLE IF NOT EXISTS `ecs_touch_user_info` (
   `user_id` int(10) NOT NULL,
   `aite_id` varchar(200) NOT NULL COMMENT '标识'
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='用户信息';
 
+--
+-- 表的关联 `ecs_touch_user_info`:
+--
+
+--
+-- 插入之前先把表清空（truncate） `ecs_touch_user_info`
+--
+
+TRUNCATE TABLE `ecs_touch_user_info`;
 -- --------------------------------------------------------
 
 --
 -- 表的结构 `ecs_users`
 --
+-- 创建时间： 2016-03-24 08:01:49
+-- 最后更新： 2016-03-24 08:01:52
+--
 
+DROP TABLE IF EXISTS `ecs_users`;
 CREATE TABLE IF NOT EXISTS `ecs_users` (
   `user_id` mediumint(8) unsigned NOT NULL,
   `email` varchar(60) NOT NULL DEFAULT '',
@@ -7179,6 +8397,15 @@ CREATE TABLE IF NOT EXISTS `ecs_users` (
 ) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 --
+-- 表的关联 `ecs_users`:
+--
+
+--
+-- 插入之前先把表清空（truncate） `ecs_users`
+--
+
+TRUNCATE TABLE `ecs_users`;
+--
 -- 转存表中的数据 `ecs_users`
 --
 
@@ -7193,7 +8420,11 @@ INSERT INTO `ecs_users` (`user_id`, `email`, `user_name`, `password`, `question`
 --
 -- 表的结构 `ecs_user_account`
 --
+-- 创建时间： 2016-03-24 08:01:49
+-- 最后更新： 2016-03-24 08:01:49
+--
 
+DROP TABLE IF EXISTS `ecs_user_account`;
 CREATE TABLE IF NOT EXISTS `ecs_user_account` (
   `id` mediumint(8) unsigned NOT NULL,
   `user_id` mediumint(8) unsigned NOT NULL DEFAULT '0',
@@ -7208,12 +8439,25 @@ CREATE TABLE IF NOT EXISTS `ecs_user_account` (
   `is_paid` tinyint(1) NOT NULL DEFAULT '0'
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
+--
+-- 表的关联 `ecs_user_account`:
+--
+
+--
+-- 插入之前先把表清空（truncate） `ecs_user_account`
+--
+
+TRUNCATE TABLE `ecs_user_account`;
 -- --------------------------------------------------------
 
 --
 -- 表的结构 `ecs_user_address`
 --
+-- 创建时间： 2016-03-24 08:01:49
+-- 最后更新： 2016-03-24 08:01:52
+--
 
+DROP TABLE IF EXISTS `ecs_user_address`;
 CREATE TABLE IF NOT EXISTS `ecs_user_address` (
   `address_id` mediumint(8) unsigned NOT NULL,
   `address_name` varchar(50) NOT NULL DEFAULT '',
@@ -7233,6 +8477,15 @@ CREATE TABLE IF NOT EXISTS `ecs_user_address` (
 ) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 --
+-- 表的关联 `ecs_user_address`:
+--
+
+--
+-- 插入之前先把表清空（truncate） `ecs_user_address`
+--
+
+TRUNCATE TABLE `ecs_user_address`;
+--
 -- 转存表中的数据 `ecs_user_address`
 --
 
@@ -7245,7 +8498,11 @@ INSERT INTO `ecs_user_address` (`address_id`, `address_name`, `user_id`, `consig
 --
 -- 表的结构 `ecs_user_bonus`
 --
+-- 创建时间： 2016-03-24 08:01:49
+-- 最后更新： 2016-03-24 08:01:52
+--
 
+DROP TABLE IF EXISTS `ecs_user_bonus`;
 CREATE TABLE IF NOT EXISTS `ecs_user_bonus` (
   `bonus_id` mediumint(8) unsigned NOT NULL,
   `bonus_type_id` tinyint(3) unsigned NOT NULL DEFAULT '0',
@@ -7256,6 +8513,15 @@ CREATE TABLE IF NOT EXISTS `ecs_user_bonus` (
   `emailed` tinyint(3) unsigned NOT NULL DEFAULT '0'
 ) ENGINE=MyISAM AUTO_INCREMENT=32 DEFAULT CHARSET=utf8;
 
+--
+-- 表的关联 `ecs_user_bonus`:
+--
+
+--
+-- 插入之前先把表清空（truncate） `ecs_user_bonus`
+--
+
+TRUNCATE TABLE `ecs_user_bonus`;
 --
 -- 转存表中的数据 `ecs_user_bonus`
 --
@@ -7286,7 +8552,11 @@ INSERT INTO `ecs_user_bonus` (`bonus_id`, `bonus_type_id`, `bonus_sn`, `user_id`
 --
 -- 表的结构 `ecs_user_feed`
 --
+-- 创建时间： 2016-03-24 08:01:49
+-- 最后更新： 2016-03-24 08:01:49
+--
 
+DROP TABLE IF EXISTS `ecs_user_feed`;
 CREATE TABLE IF NOT EXISTS `ecs_user_feed` (
   `feed_id` mediumint(8) unsigned NOT NULL,
   `user_id` mediumint(8) unsigned NOT NULL DEFAULT '0',
@@ -7296,12 +8566,25 @@ CREATE TABLE IF NOT EXISTS `ecs_user_feed` (
   `is_feed` tinyint(1) unsigned NOT NULL DEFAULT '0'
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
+--
+-- 表的关联 `ecs_user_feed`:
+--
+
+--
+-- 插入之前先把表清空（truncate） `ecs_user_feed`
+--
+
+TRUNCATE TABLE `ecs_user_feed`;
 -- --------------------------------------------------------
 
 --
 -- 表的结构 `ecs_user_rank`
 --
+-- 创建时间： 2016-03-24 08:01:49
+-- 最后更新： 2016-03-24 08:01:52
+--
 
+DROP TABLE IF EXISTS `ecs_user_rank`;
 CREATE TABLE IF NOT EXISTS `ecs_user_rank` (
   `rank_id` tinyint(3) unsigned NOT NULL,
   `rank_name` varchar(30) NOT NULL DEFAULT '',
@@ -7310,8 +8593,17 @@ CREATE TABLE IF NOT EXISTS `ecs_user_rank` (
   `discount` tinyint(3) unsigned NOT NULL DEFAULT '0',
   `show_price` tinyint(1) unsigned NOT NULL DEFAULT '1',
   `special_rank` tinyint(1) unsigned NOT NULL DEFAULT '0'
-) ENGINE=MyISAM AUTO_INCREMENT=100 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
+--
+-- 表的关联 `ecs_user_rank`:
+--
+
+--
+-- 插入之前先把表清空（truncate） `ecs_user_rank`
+--
+
+TRUNCATE TABLE `ecs_user_rank`;
 --
 -- 转存表中的数据 `ecs_user_rank`
 --
@@ -7319,15 +8611,18 @@ CREATE TABLE IF NOT EXISTS `ecs_user_rank` (
 INSERT INTO `ecs_user_rank` (`rank_id`, `rank_name`, `min_points`, `max_points`, `discount`, `show_price`, `special_rank`) VALUES
 (1, '注册用户', 0, 10000, 100, 1, 0),
 (2, 'vip', 10000, 10000000, 95, 1, 0),
-(3, '代销用户', 0, 0, 90, 0, 1),
-(99, '微信用户', 0, 0, 100, 1, 1);
+(3, '代销用户', 0, 0, 90, 0, 1);
 
 -- --------------------------------------------------------
 
 --
 -- 表的结构 `ecs_virtual_card`
 --
+-- 创建时间： 2016-03-24 08:01:50
+-- 最后更新： 2016-03-24 08:01:50
+--
 
+DROP TABLE IF EXISTS `ecs_virtual_card`;
 CREATE TABLE IF NOT EXISTS `ecs_virtual_card` (
   `card_id` mediumint(8) NOT NULL,
   `goods_id` mediumint(8) unsigned NOT NULL DEFAULT '0',
@@ -7340,6 +8635,15 @@ CREATE TABLE IF NOT EXISTS `ecs_virtual_card` (
   `crc32` varchar(12) NOT NULL DEFAULT '0'
 ) ENGINE=MyISAM AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
 
+--
+-- 表的关联 `ecs_virtual_card`:
+--
+
+--
+-- 插入之前先把表清空（truncate） `ecs_virtual_card`
+--
+
+TRUNCATE TABLE `ecs_virtual_card`;
 --
 -- 转存表中的数据 `ecs_virtual_card`
 --
@@ -7366,7 +8670,11 @@ INSERT INTO `ecs_virtual_card` (`card_id`, `goods_id`, `card_sn`, `card_password
 --
 -- 表的结构 `ecs_volume_price`
 --
+-- 创建时间： 2016-03-24 08:01:50
+-- 最后更新： 2016-03-24 08:01:52
+--
 
+DROP TABLE IF EXISTS `ecs_volume_price`;
 CREATE TABLE IF NOT EXISTS `ecs_volume_price` (
   `price_type` tinyint(1) unsigned NOT NULL,
   `goods_id` mediumint(8) unsigned NOT NULL,
@@ -7374,6 +8682,15 @@ CREATE TABLE IF NOT EXISTS `ecs_volume_price` (
   `volume_price` decimal(10,2) NOT NULL DEFAULT '0.00'
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
+--
+-- 表的关联 `ecs_volume_price`:
+--
+
+--
+-- 插入之前先把表清空（truncate） `ecs_volume_price`
+--
+
+TRUNCATE TABLE `ecs_volume_price`;
 --
 -- 转存表中的数据 `ecs_volume_price`
 --
@@ -7390,7 +8707,11 @@ INSERT INTO `ecs_volume_price` (`price_type`, `goods_id`, `volume_number`, `volu
 --
 -- 表的结构 `ecs_vote`
 --
+-- 创建时间： 2016-03-24 08:01:49
+-- 最后更新： 2016-03-24 08:01:52
+--
 
+DROP TABLE IF EXISTS `ecs_vote`;
 CREATE TABLE IF NOT EXISTS `ecs_vote` (
   `vote_id` smallint(5) unsigned NOT NULL,
   `vote_name` varchar(250) NOT NULL DEFAULT '',
@@ -7400,6 +8721,15 @@ CREATE TABLE IF NOT EXISTS `ecs_vote` (
   `vote_count` int(10) unsigned NOT NULL DEFAULT '0'
 ) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
+--
+-- 表的关联 `ecs_vote`:
+--
+
+--
+-- 插入之前先把表清空（truncate） `ecs_vote`
+--
+
+TRUNCATE TABLE `ecs_vote`;
 --
 -- 转存表中的数据 `ecs_vote`
 --
@@ -7412,7 +8742,11 @@ INSERT INTO `ecs_vote` (`vote_id`, `vote_name`, `start_time`, `end_time`, `can_m
 --
 -- 表的结构 `ecs_vote_log`
 --
+-- 创建时间： 2016-03-24 08:01:49
+-- 最后更新： 2016-03-24 08:01:49
+--
 
+DROP TABLE IF EXISTS `ecs_vote_log`;
 CREATE TABLE IF NOT EXISTS `ecs_vote_log` (
   `log_id` mediumint(8) unsigned NOT NULL,
   `vote_id` smallint(5) unsigned NOT NULL DEFAULT '0',
@@ -7420,12 +8754,25 @@ CREATE TABLE IF NOT EXISTS `ecs_vote_log` (
   `vote_time` int(10) unsigned NOT NULL DEFAULT '0'
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
+--
+-- 表的关联 `ecs_vote_log`:
+--
+
+--
+-- 插入之前先把表清空（truncate） `ecs_vote_log`
+--
+
+TRUNCATE TABLE `ecs_vote_log`;
 -- --------------------------------------------------------
 
 --
 -- 表的结构 `ecs_vote_option`
 --
+-- 创建时间： 2016-03-24 08:01:49
+-- 最后更新： 2016-03-24 08:01:52
+--
 
+DROP TABLE IF EXISTS `ecs_vote_option`;
 CREATE TABLE IF NOT EXISTS `ecs_vote_option` (
   `option_id` smallint(5) unsigned NOT NULL,
   `vote_id` smallint(5) unsigned NOT NULL DEFAULT '0',
@@ -7434,6 +8781,15 @@ CREATE TABLE IF NOT EXISTS `ecs_vote_option` (
   `option_order` tinyint(3) unsigned NOT NULL DEFAULT '100'
 ) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
+--
+-- 表的关联 `ecs_vote_option`:
+--
+
+--
+-- 插入之前先把表清空（truncate） `ecs_vote_option`
+--
+
+TRUNCATE TABLE `ecs_vote_option`;
 --
 -- 转存表中的数据 `ecs_vote_option`
 --
@@ -7446,250 +8802,13 @@ INSERT INTO `ecs_vote_option` (`option_id`, `vote_id`, `option_name`, `option_co
 -- --------------------------------------------------------
 
 --
--- 表的结构 `ecs_wechat`
---
-
-CREATE TABLE IF NOT EXISTS `ecs_wechat` (
-  `id` int(10) unsigned NOT NULL,
-  `name` varchar(255) NOT NULL COMMENT '公众号名称',
-  `orgid` varchar(255) NOT NULL COMMENT '公众号原始ID',
-  `weixin` varchar(255) NOT NULL COMMENT '微信号',
-  `token` varchar(255) NOT NULL COMMENT 'Token',
-  `appid` varchar(255) NOT NULL COMMENT 'AppID',
-  `appsecret` varchar(255) NOT NULL COMMENT 'AppSecret',
-  `type` int(1) unsigned NOT NULL DEFAULT '0' COMMENT '公众号类型',
-  `oauth_name` varchar(100) DEFAULT NULL,
-  `oauth_redirecturi` varchar(255) DEFAULT NULL,
-  `oauth_count` int(11) unsigned NOT NULL DEFAULT '0',
-  `time` int(11) unsigned NOT NULL DEFAULT '0',
-  `sort` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '排序',
-  `status` int(1) unsigned NOT NULL DEFAULT '0' COMMENT '状态',
-  `default_wx` int(1) NOT NULL DEFAULT '0' COMMENT '1为默认使用，0为不默认'
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
--- 表的结构 `ecs_wechat_custom_message`
---
-
-CREATE TABLE IF NOT EXISTS `ecs_wechat_custom_message` (
-  `id` int(10) NOT NULL,
-  `uid` int(10) NOT NULL,
-  `msg` varchar(255) DEFAULT NULL COMMENT '信息内容',
-  `send_time` int(11) DEFAULT NULL COMMENT '发送时间'
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
--- 表的结构 `ecs_wechat_extend`
---
-
-CREATE TABLE IF NOT EXISTS `ecs_wechat_extend` (
-  `id` int(11) NOT NULL,
-  `name` varchar(100) DEFAULT NULL COMMENT '功能名称',
-  `keywords` varchar(20) DEFAULT NULL,
-  `command` varchar(255) DEFAULT NULL COMMENT '扩展词',
-  `config` text COMMENT '配置信息',
-  `type` varchar(20) DEFAULT NULL,
-  `enable` int(1) unsigned NOT NULL DEFAULT '0' COMMENT '是否安装，1为已安装，0未安装',
-  `author` varchar(100) DEFAULT NULL,
-  `website` varchar(100) DEFAULT NULL,
-  `wechat_id` int(10) unsigned NOT NULL COMMENT '公众号id'
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
--- 表的结构 `ecs_wechat_mass_history`
---
-
-CREATE TABLE IF NOT EXISTS `ecs_wechat_mass_history` (
-  `id` int(11) NOT NULL,
-  `wechat_id` int(11) unsigned NOT NULL,
-  `media_id` int(11) DEFAULT NULL COMMENT '素材id',
-  `type` varchar(10) DEFAULT NULL COMMENT '发送内容类型',
-  `status` varchar(20) DEFAULT NULL COMMENT '发送状态，对应微信通通知状态',
-  `send_time` int(11) DEFAULT NULL,
-  `msg_id` varchar(20) DEFAULT NULL COMMENT '微信端返回的消息ID',
-  `totalcount` int(10) DEFAULT NULL COMMENT 'group_id下粉丝数；或者openid_list中的粉丝数',
-  `filtercount` int(10) DEFAULT NULL,
-  `sentcount` int(10) DEFAULT NULL COMMENT '发送成功的粉丝数',
-  `errorcount` int(10) DEFAULT NULL COMMENT '发送失败的粉丝数'
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
--- 表的结构 `ecs_wechat_media`
---
-
-CREATE TABLE IF NOT EXISTS `ecs_wechat_media` (
-  `id` int(10) NOT NULL,
-  `wechat_id` int(10) NOT NULL,
-  `title` varchar(255) DEFAULT NULL COMMENT '图文消息标题',
-  `command` varchar(20) NOT NULL COMMENT '关键词',
-  `author` varchar(20) DEFAULT NULL,
-  `is_show` int(1) NOT NULL DEFAULT '0' COMMENT '是否显示封面，1为显示，0为不显示',
-  `digest` varchar(255) DEFAULT NULL COMMENT '图文消息的描述',
-  `content` text NOT NULL COMMENT '图文消息页面的内容，支持HTML标签',
-  `link` varchar(255) DEFAULT NULL COMMENT '点击图文消息跳转链接',
-  `file` varchar(255) DEFAULT NULL COMMENT '图片链接',
-  `size` int(7) DEFAULT NULL COMMENT '媒体文件上传后，获取时的唯一标识',
-  `file_name` varchar(255) DEFAULT NULL COMMENT '媒体文件上传时间戳',
-  `thumb` varchar(255) DEFAULT NULL,
-  `add_time` int(11) DEFAULT NULL COMMENT '添加时间',
-  `edit_time` int(11) unsigned DEFAULT NULL,
-  `type` varchar(10) DEFAULT NULL,
-  `article_id` varchar(100) DEFAULT NULL,
-  `sort` int(10) DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
--- 表的结构 `ecs_wechat_menu`
---
-
-CREATE TABLE IF NOT EXISTS `ecs_wechat_menu` (
-  `id` int(10) unsigned NOT NULL,
-  `wechat_id` int(10) unsigned NOT NULL DEFAULT '0',
-  `pid` int(3) unsigned NOT NULL DEFAULT '0' COMMENT '父级ID',
-  `name` varchar(255) NOT NULL COMMENT '菜单标题',
-  `type` varchar(10) NOT NULL COMMENT '菜单的响应动作类型',
-  `key` varchar(255) NOT NULL COMMENT '菜单KEY值，click类型必须',
-  `url` varchar(255) NOT NULL COMMENT '网页链接，view类型必须',
-  `sort` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '排序',
-  `status` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '状态'
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
--- 表的结构 `ecs_wechat_point`
---
-
-CREATE TABLE IF NOT EXISTS `ecs_wechat_point` (
-  `log_id` mediumint(8) unsigned NOT NULL COMMENT '积分增加记录id',
-  `openid` varchar(100) DEFAULT NULL,
-  `keywords` varchar(100) NOT NULL COMMENT '关键词',
-  `createtime` int(11) unsigned NOT NULL DEFAULT '0'
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
--- 表的结构 `ecs_wechat_prize`
---
-
-CREATE TABLE IF NOT EXISTS `ecs_wechat_prize` (
-  `id` int(11) unsigned NOT NULL,
-  `wechat_id` int(11) unsigned NOT NULL,
-  `openid` varchar(100) NOT NULL,
-  `prize_name` varchar(100) NOT NULL,
-  `issue_status` int(2) NOT NULL DEFAULT '0' COMMENT '发放状态，0未发放，1发放',
-  `winner` varchar(255) DEFAULT NULL,
-  `dateline` int(11) unsigned NOT NULL,
-  `prize_type` int(1) unsigned NOT NULL DEFAULT '0' COMMENT '是否中奖，0未中奖，1中奖',
-  `activity_type` varchar(20) NOT NULL COMMENT '活动类型'
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
--- 表的结构 `ecs_wechat_qrcode`
---
-
-CREATE TABLE IF NOT EXISTS `ecs_wechat_qrcode` (
-  `id` int(10) NOT NULL,
-  `type` int(1) NOT NULL DEFAULT '0' COMMENT '二维码类型，0临时，1永久',
-  `expire_seconds` int(4) DEFAULT NULL COMMENT '二维码有效时间',
-  `scene_id` int(10) NOT NULL COMMENT '场景值ID，临时二维码时为32位非0整型，永久二维码时最大值为100000（目前参数只支持1--100000）',
-  `function` varchar(255) NOT NULL COMMENT '功能',
-  `ticket` varchar(255) DEFAULT NULL COMMENT '二维码ticket',
-  `qrcode_url` varchar(255) DEFAULT NULL COMMENT '二维码路径',
-  `endtime` int(11) DEFAULT NULL COMMENT '结束时间',
-  `wechat_id` int(10) NOT NULL,
-  `status` int(1) NOT NULL DEFAULT '1' COMMENT '状态',
-  `sort` int(10) NOT NULL DEFAULT '0'
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
--- 表的结构 `ecs_wechat_reply`
---
-
-CREATE TABLE IF NOT EXISTS `ecs_wechat_reply` (
-  `id` int(10) NOT NULL,
-  `wechat_id` int(11) unsigned NOT NULL,
-  `type` varchar(10) NOT NULL COMMENT '自动回复类型',
-  `content` varchar(255) DEFAULT NULL,
-  `media_id` int(10) DEFAULT NULL,
-  `rule_name` varchar(180) DEFAULT NULL,
-  `add_time` int(11) DEFAULT NULL,
-  `reply_type` varchar(10) DEFAULT NULL COMMENT '关键词回复内容的类型'
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
--- 表的结构 `ecs_wechat_rule_keywords`
---
-
-CREATE TABLE IF NOT EXISTS `ecs_wechat_rule_keywords` (
-  `id` int(11) NOT NULL,
-  `rid` int(11) NOT NULL COMMENT '规则id',
-  `rule_keywords` varchar(255) DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
--- 表的结构 `ecs_wechat_user`
---
-
-CREATE TABLE IF NOT EXISTS `ecs_wechat_user` (
-  `uid` int(10) unsigned NOT NULL,
-  `wechat_id` int(10) unsigned NOT NULL DEFAULT '0',
-  `subscribe` tinyint(1) unsigned NOT NULL COMMENT '用户是否订阅该公众号标识',
-  `openid` varchar(255) NOT NULL COMMENT '用户的标识',
-  `nickname` varchar(255) NOT NULL COMMENT '用户的昵称',
-  `sex` tinyint(1) unsigned NOT NULL DEFAULT '0' COMMENT '用户的性别',
-  `city` varchar(255) NOT NULL COMMENT '用户所在城市',
-  `country` varchar(255) NOT NULL COMMENT '用户所在国家',
-  `province` varchar(255) NOT NULL COMMENT '用户所在省份',
-  `language` varchar(50) NOT NULL COMMENT '用户的语言',
-  `headimgurl` varchar(255) NOT NULL COMMENT '用户头像',
-  `subscribe_time` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '用户关注时间',
-  `remark` varchar(255) DEFAULT NULL,
-  `unionid` varchar(255) NOT NULL,
-  `group_id` int(11) NOT NULL DEFAULT '0' COMMENT '用户组id',
-  `ect_uid` int(11) unsigned NOT NULL COMMENT 'ecshop会员id'
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
--- 表的结构 `ecs_wechat_user_group`
---
-
-CREATE TABLE IF NOT EXISTS `ecs_wechat_user_group` (
-  `id` int(10) unsigned NOT NULL,
-  `wechat_id` int(10) unsigned NOT NULL DEFAULT '0',
-  `group_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '分组id',
-  `name` varchar(255) NOT NULL COMMENT '分组名字，UTF8编码',
-  `count` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '分组内用户数量',
-  `sort` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '排序'
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
 -- 表的结构 `ecs_wholesale`
 --
+-- 创建时间： 2016-03-24 08:01:50
+-- 最后更新： 2016-03-24 08:01:52
+--
 
+DROP TABLE IF EXISTS `ecs_wholesale`;
 CREATE TABLE IF NOT EXISTS `ecs_wholesale` (
   `act_id` mediumint(8) unsigned NOT NULL,
   `goods_id` mediumint(8) unsigned NOT NULL,
@@ -7699,6 +8818,15 @@ CREATE TABLE IF NOT EXISTS `ecs_wholesale` (
   `enabled` tinyint(3) unsigned NOT NULL
 ) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
+--
+-- 表的关联 `ecs_wholesale`:
+--
+
+--
+-- 插入之前先把表清空（truncate） `ecs_wholesale`
+--
+
+TRUNCATE TABLE `ecs_wholesale`;
 --
 -- 转存表中的数据 `ecs_wholesale`
 --
@@ -8421,78 +9549,6 @@ ALTER TABLE `ecs_vote_option`
   ADD KEY `vote_id` (`vote_id`);
 
 --
--- Indexes for table `ecs_wechat`
---
-ALTER TABLE `ecs_wechat`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `ecs_wechat_custom_message`
---
-ALTER TABLE `ecs_wechat_custom_message`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `ecs_wechat_extend`
---
-ALTER TABLE `ecs_wechat_extend`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `ecs_wechat_mass_history`
---
-ALTER TABLE `ecs_wechat_mass_history`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `ecs_wechat_media`
---
-ALTER TABLE `ecs_wechat_media`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `ecs_wechat_menu`
---
-ALTER TABLE `ecs_wechat_menu`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `ecs_wechat_prize`
---
-ALTER TABLE `ecs_wechat_prize`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `ecs_wechat_qrcode`
---
-ALTER TABLE `ecs_wechat_qrcode`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `ecs_wechat_reply`
---
-ALTER TABLE `ecs_wechat_reply`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `ecs_wechat_rule_keywords`
---
-ALTER TABLE `ecs_wechat_rule_keywords`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `ecs_wechat_user`
---
-ALTER TABLE `ecs_wechat_user`
-  ADD PRIMARY KEY (`uid`);
-
---
--- Indexes for table `ecs_wechat_user_group`
---
-ALTER TABLE `ecs_wechat_user_group`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indexes for table `ecs_wholesale`
 --
 ALTER TABLE `ecs_wholesale`
@@ -8882,7 +9938,7 @@ ALTER TABLE `ecs_user_feed`
 -- AUTO_INCREMENT for table `ecs_user_rank`
 --
 ALTER TABLE `ecs_user_rank`
-  MODIFY `rank_id` tinyint(3) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=100;
+  MODIFY `rank_id` tinyint(3) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `ecs_virtual_card`
 --
@@ -8903,66 +9959,6 @@ ALTER TABLE `ecs_vote_log`
 --
 ALTER TABLE `ecs_vote_option`
   MODIFY `option_id` smallint(5) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
---
--- AUTO_INCREMENT for table `ecs_wechat`
---
-ALTER TABLE `ecs_wechat`
-  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `ecs_wechat_custom_message`
---
-ALTER TABLE `ecs_wechat_custom_message`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `ecs_wechat_extend`
---
-ALTER TABLE `ecs_wechat_extend`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `ecs_wechat_mass_history`
---
-ALTER TABLE `ecs_wechat_mass_history`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `ecs_wechat_media`
---
-ALTER TABLE `ecs_wechat_media`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `ecs_wechat_menu`
---
-ALTER TABLE `ecs_wechat_menu`
-  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `ecs_wechat_prize`
---
-ALTER TABLE `ecs_wechat_prize`
-  MODIFY `id` int(11) unsigned NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `ecs_wechat_qrcode`
---
-ALTER TABLE `ecs_wechat_qrcode`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `ecs_wechat_reply`
---
-ALTER TABLE `ecs_wechat_reply`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `ecs_wechat_rule_keywords`
---
-ALTER TABLE `ecs_wechat_rule_keywords`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `ecs_wechat_user`
---
-ALTER TABLE `ecs_wechat_user`
-  MODIFY `uid` int(10) unsigned NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `ecs_wechat_user_group`
---
-ALTER TABLE `ecs_wechat_user_group`
-  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `ecs_wholesale`
 --
