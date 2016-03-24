@@ -1,0 +1,6 @@
+.idea/
+
+# 忽略缓存
+upload/temp/
+mobile/data/cache/
+touch/data/cache/
